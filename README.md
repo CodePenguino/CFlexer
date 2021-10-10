@@ -5,7 +5,7 @@ This is a C version of another engine I am making, Flexer!
 
 # How do I compile this?
 ## Linux & unix based systems:
-Make sure you have cmake, make, g++, GLEW, GLFW, and OpenGL installed to build this. In Debian based linux systems, this is done with the following command:
+Make sure you have cmake, make, gcc, GLEW, GLFW, and OpenGL installed to build this. In Debian based linux systems, this is done with the following command:
 ```
 sudo apt install gcc cmake make libglew-dev libglfw3-dev libglm-dev mesa-utils
 ```
