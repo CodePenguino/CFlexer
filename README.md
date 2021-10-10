@@ -19,4 +19,12 @@ With that set up, all you have to do is just run the following command:
 make run
 ```
 ## Windows:
-I honestly have no idea how you would build this, aside from compiling with MinGW or trying to use WSL. Other than that, i'll give a fair warning that trying to compile this in windows is not going to be as easy (Though I might make a windows compatible compilation method later down the line)
+## Mingw method
+I actually have a windows compilation method this time!
+First, download and install mingw32. Then, delete the file labeled "Makefile", and rename "Makefile.win" to "Makefile". Finally, open up either cmd or powershell in the directory where the makefile is, and type the following:
+```
+mingw32-make
+```
+With some luck, you might get the program to compile! You should see a program called "a.exe" show up. Just run this (either on the terminal, or by double-clicking on the app), and you should be good to go!
+## Visual Studio
+no.
