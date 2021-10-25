@@ -4,6 +4,7 @@
 #include "../rendering/window.h"
 #include "../rendering/mesh.h"
 #include "../rendering/shader.h"
+#include "../core/vec2.h"
 
 void game_start();
 void game_stop();

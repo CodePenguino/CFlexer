@@ -1,6 +1,7 @@
 #include "window.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "../core/time.h"
 
 // Callbackers!
 static void resize_callback(GLFWwindow* winHandle, int width, int height)
@@ -56,6 +57,8 @@ static void mouse_callback(GLFWwindow* winHandle, int button, int action, int mo
 
 void window_create(u32 width, u32 height, const char* title)
 {
+	time_init();
+
 	window.width  = width;
 	window.height = height;
 
@@ -120,8 +123,11 @@ void window_mainloop()
 {
 	while(!glfwWindowShouldClose(window.handle))
 	{
+		time_update();
 		processInputsCallback();
 		glClear(GL_COLOR_BUFFER_BIT);
+
+		printf("FPS: %f\n", 1.0f / delta_time);
 
 		updateCallback();
 
