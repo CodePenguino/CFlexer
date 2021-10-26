@@ -21,7 +21,7 @@ make run
 ## Windows:
 ## Mingw method
 I actually have a windows compilation method this time!
-First, download and install mingw32. Then, delete the file labeled "Makefile", and rename "Makefile.win" to "Makefile". Finally, open up either cmd or powershell in the directory where the makefile is, and type the following:
+First, download and install mingw32. Then, go to the minBuild folder and run the following command:
 ```
 mingw32-make
 ```
