@@ -127,8 +127,6 @@ void window_mainloop()
 		processInputsCallback();
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		printf("FPS: %f\n", 1.0f / delta_time);
-
 		updateCallback();
 
 		glfwSwapBuffers(window.handle);

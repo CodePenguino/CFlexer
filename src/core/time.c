@@ -1,11 +1,14 @@
 #include "time.h"
 #include <GLFW/glfw3.h>
+#include <stdio.h>
 
 float last_time, now_time, delta_time, FPSLimit;
+u64 time_ticks;
 
 // Initializes FPSLimit
 void time_init()
 {
+	time_ticks = 0.0f;
 	FPSLimit = 120.0f;
 }
 
@@ -16,4 +19,12 @@ void time_update()
 	delta_time = now_time - last_time;
 
 	last_time = now_time;
+
+	time_ticks++;
+
+	if(time_ticks > 100)
+	{
+		time_ticks = 0;
+		printf("FPS: %f\n", 1.0f / delta_time);
+	}
 }

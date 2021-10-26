@@ -1,9 +1,7 @@
 #include "game.h"
-/*#include <cglm/cglm.h>
-#include <cglm/struct.h>
-#include <time.h>*/
+#include "../core/time.h"
 
-GLuint MatrixID;
+// GLint MatrixID;
 
 v2 vector = {0.0f, 1.0f};
 
@@ -14,18 +12,14 @@ static void processInputs()
 
 static void update()
 {
-	/*mat4s Projection = glms_perspective(glm_rad(45.0f), window_getAspectRatio(), 0.1f, 100.0f);
-	mat4s View = glms_lookat((vec3s){4,3,3}, (vec3s){0,0,0}, (vec3s){0,1,0});
-	mat4s Model = (mat4s){1.0f};
+	// Calculate and print the FPS
+	
+	// printf("FPS: %f\n", 1.0f / delta_time);
 
-	mat4s mvp = glms_mat4_mul(Projection, View);
-	mvp = glms_mat4_mul(mvp, Model);
+	// This is boring.
+	// TODO: Add transforms and MVPs so this is not boring.
 
-	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &mvp[0][0]);*/
-
-	// benchmark_func(vec2_printBP(&vector));
-
-	sprite_drawP(&sprite);
+	sprite_draw(sprite);
 }
 
 void game_start()
@@ -41,7 +35,7 @@ void game_start()
 
 	shader_bind(shader);
 
-	MatrixID = glGetUniformLocation(shader.id, "MVP");
+	// MatrixID = glGetUniformLocation(shader.id, "MVP");
 
 	game_loop();
 	game_stop();
