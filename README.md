@@ -25,6 +25,6 @@ First, download and install mingw32. Then, go to the minBuild folder and run the
 ```
 mingw32-make
 ```
-With some luck, you might get the program to compile! You should see a program called "a.exe" show up. Just run this (either on the terminal, or by double-clicking on the app), and you should be good to go!
+With some luck, you might get the program to compile! You should see a program called "a.exe" show up (still in the build folder.) Just run this (either on the terminal, or by double-clicking on the app), and you should be good to go!
 ## Visual Studio
 no.
