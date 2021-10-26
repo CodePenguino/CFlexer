@@ -1,3 +1,0 @@
-/home/codepingu/Downloads/CFlexer/build/CMakeFiles/rebuild_cache.dir
-/home/codepingu/Downloads/CFlexer/build/CMakeFiles/edit_cache.dir
-/home/codepingu/Downloads/CFlexer/build/CMakeFiles/CFlexer.dir
