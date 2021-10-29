@@ -19,6 +19,7 @@ char* read_file(char *filename);
 
 // Common math functions
 #define degrees_to_radians(angleInDegrees) ((angleInDegrees) * M_PI / 180.0f)
+#define radians_to_degrees(angleInRadians) ((angleInRadians) * 180.0f / M_PI)
 /*void print_vec3_p(vec3* vector);
 void print_vec3(vec3 vector);*/
 
