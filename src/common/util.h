@@ -3,7 +3,6 @@
 
 #include <stdint.h>
 #include <math.h>
-// #include <cglm/cglm.h>
 #include <time.h>
 #include <GL/glew.h>
 

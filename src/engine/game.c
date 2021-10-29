@@ -1,8 +1,6 @@
 #include "game.h"
 #include "../core/time.h"
 #include "../core/math.h"
-#include <cglm/cglm.h>
-#include <cglm/struct.h>
 
 float temp = 0.0f;
 

@@ -126,12 +126,12 @@ void shader_set_v4(Shader shader, const char* name, v4 value)
 	glUniform4fv(glGetUniformLocation(shader, name), 1, &vector4[0]);
 }
 
-void shader_set_m3(Shader shader, const char* name, mat3s mat)
+void shader_set_m3(Shader shader, const char* name, m3 mat)
 {
-	glUniformMatrix3fv(glGetUniformLocation(shader, name), 1, GL_FALSE, &mat.raw[0][0]);
+	glUniformMatrix3fv(glGetUniformLocation(shader, name), 1, GL_FALSE, &mat.m[0][0]);
 }
 
-void shader_set_m4(Shader shader, const char* name, mat4s mat)
+void shader_set_m4(Shader shader, const char* name, m4 mat)
 {
-	glUniformMatrix4fv(glGetUniformLocation(shader, name), 1, GL_FALSE, &mat.raw[0][0]);
+	glUniformMatrix4fv(glGetUniformLocation(shader, name), 1, GL_TRUE, &mat.raw[0][0]);
 }

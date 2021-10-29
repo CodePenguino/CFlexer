@@ -4,7 +4,6 @@
 #include <GL/glew.h>
 #include <stdbool.h>
 #include "../core/math.h"
-#include <cglm/struct.h>
 
 /*typedef struct
 {
@@ -24,7 +23,7 @@ void shader_set_float(Shader shader, const char* name, float value);
 void shader_set_v2(Shader shader, const char* name, v2 value);
 void shader_set_v3(Shader shader, const char* name, v3 value);
 void shader_set_v4(Shader shader, const char* name, v4 value);
-void shader_set_m3(Shader shader, const char* name, mat3s mat);
-void shader_set_m4(Shader shader, const char* name, mat4s mat);
+void shader_set_m3(Shader shader, const char* name, m3 mat);
+void shader_set_m4(Shader shader, const char* name, m4 mat);
 
 #endif

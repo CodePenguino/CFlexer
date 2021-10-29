@@ -2,7 +2,6 @@
 #define TRANSFORM_H
 
 #include "math.h"
-#include <cglm/struct.h>
 
 #define TRANSFORM_WIDTH 10;
 #define TRANSFORM_HEIGHT 10;
@@ -25,6 +24,6 @@ typedef struct
 	v3 scale;
 } Transform3d;
 
-mat4s transform3d_get_mat(Transform3d transform);
+m4 transform3d_get_mat(Transform3d transform);
 
 #endif // TRANSFORM_H
