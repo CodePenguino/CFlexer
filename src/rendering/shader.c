@@ -11,24 +11,24 @@ Shader shader_init(char* vertexFilePath, char* fragmentFilePath)
 {
 	Shader self;
 
-	self.id = glCreateProgram();
+	self = glCreateProgram();
 
 	GLuint vertexShader = shader_create(read_file(vertexFilePath), GL_VERTEX_SHADER);
 	GLuint fragmentShader = shader_create(read_file(fragmentFilePath), GL_FRAGMENT_SHADER);
 
-	glAttachShader(self.id, vertexShader);
-	glAttachShader(self.id, fragmentShader);
+	glAttachShader(self, vertexShader);
+	glAttachShader(self, fragmentShader);
 
-	glLinkProgram(self.id);
-	shader_check_error(self.id, GL_LINK_STATUS, true, "Error: Shader program linking failed");
+	glLinkProgram(self);
+	shader_check_error(self, GL_LINK_STATUS, true, "Error: Shader program linking failed");
 
-	glValidateProgram(self.id);
-	shader_check_error(self.id, GL_VALIDATE_STATUS, true, "Error: Shader program is invalid");
+	glValidateProgram(self);
+	shader_check_error(self, GL_VALIDATE_STATUS, true, "Error: Shader program is invalid");
 
-	glDetachShader(self.id, vertexShader);
+	glDetachShader(self, vertexShader);
 	glDeleteShader(vertexShader);
 
-	glDetachShader(self.id, fragmentShader);
+	glDetachShader(self, fragmentShader);
 	glDeleteShader(fragmentShader);
 
 	return self;
@@ -36,12 +36,12 @@ Shader shader_init(char* vertexFilePath, char* fragmentFilePath)
 
 void shader_destroy(Shader self)
 {
-	glDeleteProgram(self.id);
+	glDeleteProgram(self);
 }
 
 void shader_bind(Shader self)
 {
-	glUseProgram(self.id);
+	glUseProgram(self);
 }
 
 static GLuint shader_create(char* text, GLenum shaderType)
@@ -50,7 +50,7 @@ static GLuint shader_create(char* text, GLenum shaderType)
 
 	if(shader == GL_FALSE)
 	{
-		fprintf(stderr, "Error: Shader creation failed!");
+		fprintf(stderr, "Error: Shader creation failed!\n");
 	}
 
 	const char* constText = (const char*)text;
@@ -81,6 +81,57 @@ static void shader_check_error(GLuint shader, GLuint flag, bool isProgram, const
 		else
 			glGetShaderInfoLog(shader, 512, NULL, error);
 
-		fprintf(stderr, "%s: '%s'", error_message, error);
+		fprintf(stderr, "%s: '%s'\n", error_message, error);
 	}
+}
+
+
+
+
+
+
+void shader_set_bool(Shader shader, const char* name, bool value)
+{
+	glUniform1i(glGetUniformLocation(shader, name), (int)value);
+}
+
+void shader_set_int(Shader shader, const char* name, int value)
+{
+	glUniform1i(glGetUniformLocation(shader, name), value);
+}
+
+void shader_set_float(Shader shader, const char* name, float value)
+{
+	glUniform1f(glGetUniformLocation(shader, name), value);
+}
+
+void shader_set_v2(Shader shader, const char* name, v2 value)
+{
+	float vector2[2] = { value.x, value.y };
+
+	glUniform2fv(glGetUniformLocation(shader, name), 1, &vector2[0]);
+}
+
+void shader_set_v3(Shader shader, const char* name, v3 value)
+{
+	float vector3[3] = { value.x, value.y, value.z };
+
+	glUniform3fv(glGetUniformLocation(shader, name), 1, &vector3[0]);
+}
+
+void shader_set_v4(Shader shader, const char* name, v4 value)
+{
+	float vector4[4] = { value.x, value.y, value.z, value.w };
+
+	glUniform4fv(glGetUniformLocation(shader, name), 1, &vector4[0]);
+}
+
+void shader_set_m3(Shader shader, const char* name, mat3s mat)
+{
+	glUniformMatrix3fv(glGetUniformLocation(shader, name), 1, GL_FALSE, &mat.raw[0][0]);
+}
+
+void shader_set_m4(Shader shader, const char* name, mat4s mat)
+{
+	glUniformMatrix4fv(glGetUniformLocation(shader, name), 1, GL_FALSE, &mat.raw[0][0]);
 }

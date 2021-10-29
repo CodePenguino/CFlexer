@@ -1,10 +1,13 @@
 #include "game.h"
 #include "../core/time.h"
 #include "../core/math.h"
+#include <cglm/cglm.h>
+#include <cglm/struct.h>
 
-// GLint MatrixID;
+float temp = 0.0f;
 
-v3 vector = { 5.0f, 0.3f, 0.8f };
+float sinTemp;
+float cosTemp;
 
 static void processInputs()
 {
@@ -13,12 +16,14 @@ static void processInputs()
 
 static void update()
 {
-	// Calculate and print the FPS
-	
-	// printf("FPS: %f\n", 1.0f / delta_time);
+	temp += delta_time;
+	sinTemp = sinf(temp);
+	cosTemp = cosf(temp);
 
-	// This is boring.
-	// TODO: Add transforms and MVPs so this is not boring.
+	transform.position = (v2){ sinTemp, 0.0f };
+	transform.scale = (v2){ cosTemp, cosTemp };
+
+	shader_set_m4(shader, "transform", transform2d_get_ortho(transform));
 
 	sprite_draw(sprite);
 }
@@ -27,16 +32,12 @@ void game_start()
 {
 	window_create(1024, 768, "It's a window!");
 	window_setBackgroundColorRGB(0.0f, 0.15f, 0.3f);
-	shader = shader_init("../res/shader.vs", "../res/shader.fs");
-
-	sprite = sprite_init("../res/workInProgress.png");
-
 	// IMPORTANT! Sets input and update functions
 	window_setFunctions(processInputs, update);
-
+	shader = shader_init("../res/shader.vs", "../res/shader.fs");
+	sprite = sprite_init(/*NULL*/"../res/workInProgress.png");
+	
 	shader_bind(shader);
-
-	// MatrixID = glGetUniformLocation(shader.id, "MVP");
 
 	game_loop();
 	game_stop();

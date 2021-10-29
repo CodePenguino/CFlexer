@@ -4,19 +4,19 @@
 #include <math.h>
 #include <stdio.h>
 
-float vec2_length(v2 vec2)
+float v2_length(v2 vec2)
 {
 	return sqrtf(vec2.x*vec2.x + vec2.y*vec2.y);
 }
 
-float vec2_dot(v2 first, v2 second)
+float v2_dot(v2 first, v2 second)
 {
 	return first.x * second.x + first.y * second.y;
 }
 
-v2 vec2_normalize(v2 vec2)
+v2 v2_normalize(v2 vec2)
 {
-	float length = vec2_length(vec2);
+	float length = v2_length(vec2);
 
 	vec2.x /= length;
 	vec2.y /= length;
@@ -24,7 +24,7 @@ v2 vec2_normalize(v2 vec2)
 	return vec2;
 }
 
-v2 vec2_rotate(v2 vec2, float angle)
+v2 v2_rotate(v2 vec2, float angle)
 {
 	v2 vec;
 
@@ -40,7 +40,7 @@ v2 vec2_rotate(v2 vec2, float angle)
 
 // ---------------------------------
 
-v2 vec2_add(v2 first, v2 second)
+v2 v2_add(v2 first, v2 second)
 {
 	v2 vec;
 
@@ -50,17 +50,15 @@ v2 vec2_add(v2 first, v2 second)
 	return vec;
 }
 
-v2 vec2_addNum(float number)
+v2 v2_addNum(v2 vec2, float number)
 {
-	v2 vec;
+	vec2.x = vec2.x + number;
+	vec2.y = vec2.y + number;
 
-	vec.x += number;
-	vec.y += number;
-
-	return vec;
+	return vec2;
 }
 
-v2 vec2_sub(v2 first, v2 second)
+v2 v2_sub(v2 first, v2 second)
 {
 	v2 vec;
 
@@ -70,17 +68,15 @@ v2 vec2_sub(v2 first, v2 second)
 	return vec;
 }
 
-v2 vec2_subNum(float number)
+v2 v2_subNum(v2 vec2, float number)
 {
-	v2 vec;
+	vec2.x = vec2.x - number;
+	vec2.y = vec2.y - number;
 
-	vec.x -= number;
-	vec.y -= number;
-
-	return vec;
+	return vec2;
 }
 
-v2 vec2_mul(v2 first, v2 second)
+v2 v2_mul(v2 first, v2 second)
 {
 	v2 vec;
 
@@ -90,17 +86,15 @@ v2 vec2_mul(v2 first, v2 second)
 	return vec;
 }
 
-v2 vec2_mulNum(float number)
+v2 v2_mulNum(v2 vec2, float number)
 {
-	v2 vec;
+	vec2.x = vec2.x * number;
+	vec2.y = vec2.y * number;
 
-	vec.x *= number;
-	vec.y *= number;
-
-	return vec;
+	return vec2;
 }
 
-v2 vec2_div(v2 first, v2 second)
+v2 v2_div(v2 first, v2 second)
 {
 	v2 vec;
 
@@ -110,12 +104,10 @@ v2 vec2_div(v2 first, v2 second)
 	return vec;
 }
 
-v2 vec2_divNum(float number)
+v2 v2_divNum(v2 vec2, float number)
 {
-	v2 vec;
+	vec2.x = vec2.x / number;
+	vec2.y = vec2.y / number;
 
-	vec.x /= number;
-	vec.y /= number;
-
-	return vec;
+	return vec2;
 }

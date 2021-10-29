@@ -21,10 +21,4 @@ void time_update()
 	last_time = now_time;
 
 	time_ticks++;
-
-	if(time_ticks > 100)
-	{
-		time_ticks = 0;
-		printf("FPS: %f\n", 1.0f / delta_time);
-	}
 }

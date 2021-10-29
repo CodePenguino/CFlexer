@@ -2,17 +2,17 @@
 #include <stdio.h>
 #include <math.h>
 
-float vec3_length(v3 vec3)
+float v3_length(v3 vec3)
 {
 	return sqrtf(vec3.x*vec3.x + vec3.y*vec3.y + vec3.z*vec3.z);
 }
 
-float vec3_dot(v3 first, v3 second)
+float v3_dot(v3 first, v3 second)
 {
 	return first.x * second.x + first.y * second.y + first.z * second.z;
 }
 
-v3 vec3_cross(v3 first, v3 second)
+v3 v3_cross(v3 first, v3 second)
 {
 	v3 vec;
 
@@ -23,9 +23,9 @@ v3 vec3_cross(v3 first, v3 second)
 	return vec;
 }
 
-v3 vec3_normalize(v3 vec3)
+v3 v3_normalize(v3 vec3)
 {
-	float length = vec3_length(vec3);
+	float length = v3_length(vec3);
 
 	vec3.x /= length;
 	vec3.y /= length;
@@ -33,14 +33,14 @@ v3 vec3_normalize(v3 vec3)
 	return vec3;
 }
 
-void vec3_rotate(v3 vec3)
+void v3_rotate(v3 vec3)
 {
 	fprintf(stderr, "Still have to implement the rotation function for vec3s!\n");
 }
 
 
 
-v3 vec3_add(v3 first, v3 second)
+v3 v3_add(v3 first, v3 second)
 {
 	v3 vec;
 
@@ -51,18 +51,16 @@ v3 vec3_add(v3 first, v3 second)
 	return vec;
 }
 
-v3 vec3_addNum(float number)
+v3 v3_addNum(v3 vec3, float number)
 {
-	v3 vec;
+	vec3.x = vec3.x + number;
+	vec3.y = vec3.y + number;
+	vec3.z = vec3.z + number;
 
-	vec.x += number;
-	vec.y += number;
-	vec.z += number;
-
-	return vec;
+	return vec3;
 }
 
-v3 vec3_sub(v3 first, v3 second)
+v3 v3_sub(v3 first, v3 second)
 {
 	v3 vec;
 
@@ -73,18 +71,16 @@ v3 vec3_sub(v3 first, v3 second)
 	return vec;
 }
 
-v3 vec3_subNum(float number)
+v3 v3_subNum(v3 vec3, float number)
 {
-	v3 vec;
+	vec3.x = vec3.x - number;
+	vec3.y = vec3.y - number;
+	vec3.z = vec3.z - number;
 
-	vec.x -= number;
-	vec.y -= number;
-	vec.z -= number;
-
-	return vec;
+	return vec3;
 }
 
-v3 vec3_mul(v3 first, v3 second)
+v3 v3_mul(v3 first, v3 second)
 {
 	v3 vec;
 
@@ -95,18 +91,16 @@ v3 vec3_mul(v3 first, v3 second)
 	return vec;
 }
 
-v3 vec3_mulNum(float number)
+v3 v3_mulNum(v3 vec3, float number)
 {
-	v3 vec;
+	vec3.x = vec3.x * number;
+	vec3.y = vec3.y * number;
+	vec3.z = vec3.z * number;
 
-	vec.x *= number;
-	vec.y *= number;
-	vec.z *= number;
-
-	return vec;
+	return vec3;
 }
 
-v3 vec3_div(v3 first, v3 second)
+v3 v3_div(v3 first, v3 second)
 {
 	v3 vec;
 
@@ -117,13 +111,11 @@ v3 vec3_div(v3 first, v3 second)
 	return vec;
 }
 
-v3 vec3_divNum(float number)
+v3 v3_divNum(v3 vec3, float number)
 {
-	v3 vec;
+	vec3.x = vec3.x / number;
+	vec3.y = vec3.y / number;
+	vec3.z = vec3.z / number;
 
-	vec.x /= number;
-	vec.y /= number;
-	vec.z /= number;
-
-	return vec;
+	return vec3;
 }
