@@ -4,6 +4,7 @@
 #include <GL/glew.h>
 #include "../common/util.h"
 #include "texture.h"
+#include "../core/transform.h"
 
 typedef struct
 {	
@@ -11,6 +12,7 @@ typedef struct
 	GLuint VBO;
 	GLuint EBO;
 
+	Transform2d transform;
 	Texture texture;
 } Sprite;
 

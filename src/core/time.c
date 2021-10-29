@@ -2,6 +2,12 @@
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
+
 float last_time, now_time, delta_time, FPSLimit;
 u64 time_ticks;
 
@@ -17,6 +23,14 @@ void time_update()
 {
 	now_time = glfwGetTime();
 	delta_time = now_time - last_time;
+
+	if(FPSLimit != 0)
+	{
+		while(glfwGetTime() < last_time + 1.0/FPSLimit)
+		{
+			usleep(1);
+		}
+	}
 
 	last_time = now_time;
 

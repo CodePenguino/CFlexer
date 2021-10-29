@@ -1,4 +1,5 @@
 #include "mesh.h"
+#include "shader.h"
 
 Sprite sprite_init(const char* texture_path)
 {
@@ -7,8 +8,11 @@ Sprite sprite_init(const char* texture_path)
 	// Load up a texture
 	texture_init(&self.texture, texture_path);
 
-	// Calculate the number of indices
-	// self->drawCount = sizeof(sprite_default_indices) / sizeof(GLuint);
+	self.transform.position.x = 0.0f;
+	self.transform.position.y = 0.0f;
+
+	self.transform.scale.x = 1.0f;
+	self.transform.scale.y = 1.0f;
 
 	// Generate the buffers and the vertex array
 	glGenVertexArrays(1, &self.VAO);

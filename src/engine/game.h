@@ -4,15 +4,15 @@
 #include "../rendering/window.h"
 #include "../rendering/mesh.h"
 #include "../rendering/shader.h"
-#include "../core/vec2.h"
+#include "../rendering/renderer.h"
 #include "../core/transform.h"
 
 void game_start();
 void game_stop();
 void game_loop();
 
-Shader shader;
+Renderer renderer;
 Sprite sprite;
-Transform2d transform;
+Sprite sprite2;
 
 #endif

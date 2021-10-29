@@ -138,7 +138,7 @@ float window_getAspectRatio()
 {
 	if(window.height <= 0)
 	{
-		window.height = 1;
+		return 1.0f;
 	}
 
 	return (float)window.width / window.height;

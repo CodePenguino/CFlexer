@@ -24,6 +24,7 @@ void shader_set_v2(Shader shader, const char* name, v2 value);
 void shader_set_v3(Shader shader, const char* name, v3 value);
 void shader_set_v4(Shader shader, const char* name, v4 value);
 void shader_set_m3(Shader shader, const char* name, m3 mat);
+void shader_set_m4_wID(Shader shader, GLint ID, m4 mat);
 void shader_set_m4(Shader shader, const char* name, m4 mat);
 
 #endif

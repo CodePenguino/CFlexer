@@ -5,9 +5,9 @@ m3 m3_init_identity()
 {
 	m3 m;
 
-	m.m[0][0] = 1;	m.m[0][1] = 0;	m.m[0][2] = 0;
-	m.m[1][0] = 0;	m.m[1][1] = 1;	m.m[1][2] = 0;
-	m.m[2][0] = 0;	m.m[2][1] = 0;	m.m[2][2] = 1;
+	m.data[0][0] = 1;	m.data[0][1] = 0;	m.data[0][2] = 0;
+	m.data[1][0] = 0;	m.data[1][1] = 1;	m.data[1][2] = 0;
+	m.data[2][0] = 0;	m.data[2][1] = 0;	m.data[2][2] = 1;
 
 	return m;
 }
@@ -20,33 +20,49 @@ m3 m3_mul(m3 first, m3 second)
 	{
 		for(u8 j = 0; j < 3; j++)
 		{
-			m.m[i][j] = first.m[i][0] * second.m[0][j] +
-						first.m[i][1] * second.m[1][j] +
-						first.m[i][2] * second.m[2][j];
+			m.data[i][j] = first.data[i][0] * second.data[0][j] +
+						first.data[i][1] * second.data[1][j] +
+						first.data[i][2] * second.data[2][j];
 		}
 	}
 
 	return m;
 }
 
-m3 m3_init_translation(float x, float y)
+m3 m3_translate(m3 m, v2 v)
 {
-	m3 m;
-
-	m.m[0][0] = 1;	m.m[0][1] = 0;	m.m[0][2] = x;
-	m.m[1][0] = 0;	m.m[1][1] = 1;	m.m[1][2] = y;
-	m.m[2][0] = 0;	m.m[2][1] = 0;	m.m[2][2] = 1;
-
-	return m;
+	m.data[2][0] = m.data[0][0] * v.x + m.data[1][0] * v.y + m.data[2][0];
+	m.data[2][1] = m.data[0][1] * v.x + m.data[1][1] * v.y + m.data[2][1];
+	m.data[2][2] = m.data[0][2] * v.x + m.data[1][2] * v.y + m.data[2][2];
 }
 
-m3 m3_init_scale(float x, float y)
+void m3_rotate(m3 m, float angle)
 {
-	m3 m;
+float m00 = m.data[0][0],  m10 = m.data[1][0],
+      m01 = m.data[0][1],  m11 = m.data[1][1],
+      m02 = m.data[0][2],  m12 = m.data[1][2];
 
-	m.m[0][0] = x;	m.m[0][1] = 0;	m.m[0][2] = 0;
-	m.m[1][0] = 0;	m.m[1][1] = y;	m.m[1][2] = 0;
-	m.m[2][0] = 0;	m.m[2][1] = 0;	m.m[2][2] = 1;
+	float sine = sinf(angle);
+	float cosine = cosf(angle);
 
-	return m;
+	m.data[0][0] = m00 * cosine + m10 * sine;
+	m.data[0][1] = m01 * cosine + m11 * sine;
+	m.data[0][2] = m02 * cosine + m12 * sine;
+
+	m.data[1][0] = m00 * -sine + m10 * cosine;
+	m.data[1][1] = m01 * -sine + m11 * cosine;
+	m.data[1][2] = m02 * -sine + m12 * cosine;
+
+
+}
+
+m3 m3_scale(m3 m, v2 v)
+{
+	m.data[0][0] = m.data[0][0] * v.x;
+	m.data[0][1] = m.data[0][1] * v.x;
+	m.data[0][2] = m.data[0][2] * v.x;
+
+	m.data[1][0] = m.data[1][0] * v.y;
+	m.data[1][1] = m.data[1][1] * v.y;
+	m.data[1][2] = m.data[1][2] * v.y;
 }

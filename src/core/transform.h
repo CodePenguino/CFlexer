@@ -3,20 +3,18 @@
 
 #include "math.h"
 
-#define TRANSFORM_WIDTH 10;
-#define TRANSFORM_HEIGHT 10;
-
 typedef struct
 {
 	v2 position;
+	float rotation;
 	v2 scale;
 
 	m4 modelMatrix;
 } Transform2d;
 
-m4 transform2d_get_mat(Transform2d transform);
-m4 transform2d_get_ortho(Transform2d transform);
-m4 transform2d_get_perspective(Transform2d transform);
+m4 transform2d_get_mat(Transform2d* transform);
+m4 transform2d_get_ortho(Transform2d* transform);
+m4 transform2d_get_perspective(Transform2d* transform);
 
 typedef struct
 {

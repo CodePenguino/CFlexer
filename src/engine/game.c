@@ -9,7 +9,15 @@ float cosTemp;
 
 static void processInputs()
 {
+	if(isKeyPressed(GLFW_KEY_UP))
+	{
+		sprite.transform.scale.y += 1.0f * delta_time;
+	}
 
+	if(isKeyPressed(GLFW_KEY_DOWN))
+	{
+		sprite.transform.scale.y -= 1.0f * delta_time;
+	}
 }
 
 static void update()
@@ -18,12 +26,14 @@ static void update()
 	sinTemp = sinf(temp);
 	cosTemp = cosf(temp);
 
-	transform.position = (v2){ sinTemp, 0.0f };
-	transform.scale = (v2){ cosTemp, cosTemp };
+	sprite.transform.position.x = sinTemp;
+	sprite.transform.rotation = sinTemp * 180;
 
-	shader_set_m4(shader, "transform", transform2d_get_ortho(transform));
+	sprite2.transform.position.y = -cosTemp;
+	sprite2.transform.rotation = temp * 90;
 
-	sprite_draw(sprite);
+	draw_sprite(renderer, sprite);
+	draw_sprite(renderer, sprite2);
 }
 
 void game_start()
@@ -32,10 +42,13 @@ void game_start()
 	window_setBackgroundColorRGB(0.0f, 0.15f, 0.3f);
 	// IMPORTANT! Sets input and update functions
 	window_setFunctions(processInputs, update);
-	shader = shader_init("../res/shader.vs", "../res/shader.fs");
-	sprite = sprite_init(/*NULL*/"../res/workInProgress.png");
-	
-	shader_bind(shader);
+
+	// transform2d_init(sprite.transform);
+	renderer.shader = shader_init("../res/shader.vs", "../res/shader.fs");
+	sprite = sprite_init("../res/workInProgress.png");
+	sprite2 = sprite_init("../res/workInProgress.png");
+
+	shader_bind(renderer.shader);
 
 	game_loop();
 	game_stop();
@@ -43,8 +56,9 @@ void game_start()
 
 void game_stop()
 {
-	shader_destroy(shader);
+	shader_destroy(renderer.shader);
 	sprite_destroy(sprite);
+	sprite_destroy(sprite2);
 	window_destroy();
 }
 

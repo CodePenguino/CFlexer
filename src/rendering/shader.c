@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "../common/util.h"
 #include <stdlib.h>
+#include "renderer.h"
 
 static void shader_check_error(GLuint shader, GLuint flag, bool isProgram, const char* error_message);
 static GLuint shader_create(char* text, GLenum shaderType);
@@ -30,6 +31,8 @@ Shader shader_init(char* vertexFilePath, char* fragmentFilePath)
 
 	glDetachShader(self, fragmentShader);
 	glDeleteShader(fragmentShader);
+
+	transformID = glGetUniformLocation(self, "transform");
 
 	return self;
 }
@@ -128,10 +131,15 @@ void shader_set_v4(Shader shader, const char* name, v4 value)
 
 void shader_set_m3(Shader shader, const char* name, m3 mat)
 {
-	glUniformMatrix3fv(glGetUniformLocation(shader, name), 1, GL_FALSE, &mat.m[0][0]);
+	glUniformMatrix3fv(glGetUniformLocation(shader, name), 1, GL_FALSE, &mat.data[0][0]);
+}
+
+void shader_set_m4_wID(Shader shader, GLint ID, m4 mat)
+{
+	glUniformMatrix4fv(transformID, 1, GL_TRUE, &mat.data[0][0]);
 }
 
 void shader_set_m4(Shader shader, const char* name, m4 mat)
 {
-	glUniformMatrix4fv(glGetUniformLocation(shader, name), 1, GL_TRUE, &mat.raw[0][0]);
+	glUniformMatrix4fv(glGetUniformLocation(shader, name), 1, GL_TRUE, &mat.data[0][0]);
 }

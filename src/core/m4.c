@@ -2,15 +2,16 @@
 
 #include "../common/util.h"
 #include <math.h>
+#include "vec2.h"
 
 m4 m4_init_identity()
 {
 	m4 m;
 
-	m.raw[0][0] = 1;	m.raw[0][1] = 0;	m.raw[0][2] = 0;	m.raw[0][3] = 0;
-	m.raw[1][0] = 0;	m.raw[1][1] = 1;	m.raw[1][2] = 0;	m.raw[1][3] = 0;
-	m.raw[2][0] = 0;	m.raw[2][1] = 0;	m.raw[2][2] = 1;	m.raw[2][3] = 0;
-	m.raw[3][0] = 0;	m.raw[3][1] = 0;	m.raw[3][2] = 0;	m.raw[3][3] = 1;
+	m.data[0][0] = 1;	m.data[0][1] = 0;	m.data[0][2] = 0;	m.data[0][3] = 0;
+	m.data[1][0] = 0;	m.data[1][1] = 1;	m.data[1][2] = 0;	m.data[1][3] = 0;
+	m.data[2][0] = 0;	m.data[2][1] = 0;	m.data[2][2] = 1;	m.data[2][3] = 0;
+	m.data[3][0] = 0;	m.data[3][1] = 0;	m.data[3][2] = 0;	m.data[3][3] = 1;
 
 	return m;
 }
@@ -23,10 +24,10 @@ m4 m4_mul(m4 first, m4 second)
 	{
 		for(u8 j = 0; j < 4; j++)
 		{
-			m.raw[i][j] = first.raw[i][0] * second.raw[0][j] +
-						  first.raw[i][1] * second.raw[1][j] +
-						  first.raw[i][2] * second.raw[2][j] +
-						  first.raw[i][3] * second.raw[3][j];
+			m.data[i][j] = first.data[i][0] * second.data[0][j] +
+						  first.data[i][1] * second.data[1][j] +
+						  first.data[i][2] * second.data[2][j] +
+						  first.data[i][3] * second.data[3][j];
 		}
 	}
 
@@ -37,10 +38,25 @@ m4 m4_init_translation(m4 transMat, float x, float y, float z)
 {
 	m4 m;
 
-	m.raw[0][0] = 1;	m.raw[0][1] = 0;	m.raw[0][2] = 0;	m.raw[0][3] = x;
-	m.raw[1][0] = 0;	m.raw[1][1] = 1;	m.raw[1][2] = 0;	m.raw[1][3] = y;
-	m.raw[2][0] = 0;	m.raw[2][1] = 0;	m.raw[2][2] = 1;	m.raw[2][3] = z;
-	m.raw[3][0] = 0;	m.raw[3][1] = 0;	m.raw[3][2] = 0;	m.raw[3][3] = 1;
+	m.data[0][0] = 1;	m.data[0][1] = 0;	m.data[0][2] = 0;	m.data[0][3] = x;
+	m.data[1][0] = 0;	m.data[1][1] = 1;	m.data[1][2] = 0;	m.data[1][3] = y;
+	m.data[2][0] = 0;	m.data[2][1] = 0;	m.data[2][2] = 1;	m.data[2][3] = z;
+	m.data[3][0] = 0;	m.data[3][1] = 0;	m.data[3][2] = 0;	m.data[3][3] = 1;
+
+	return m4_mul(transMat, m);
+}
+
+m4 m4_init_rotation(m4 transMat, float rot)
+{
+	m4 m;
+	v2 rotation; 
+
+	rot = degrees_to_radians(rot);
+
+	m.data[0][0] = cosf(rot);		m.data[0][1] = -sinf(rot);		m.data[0][2] = 0;		m.data[0][3] = 0;
+	m.data[1][0] = sinf(rot);		m.data[1][1] = cosf(rot);		m.data[1][2] = 0;		m.data[1][3] = 0;
+	m.data[2][0] = 0;				m.data[2][1] = 0;				m.data[2][2] = 1;		m.data[2][3] = 0;
+	m.data[3][0] = 0;				m.data[3][1] = 0;				m.data[3][2] = 0;		m.data[3][3] = 1;
 
 	return m4_mul(transMat, m);
 }
@@ -49,10 +65,10 @@ m4 m4_init_scale(m4 transMat, float x, float y, float z)
 {
 	m4 m;
 
-	m.raw[0][0] = x;	m.raw[0][1] = 0;	m.raw[0][2] = 0;	m.raw[0][3] = 0;
-	m.raw[1][0] = 0;	m.raw[1][1] = y;	m.raw[1][2] = 0;	m.raw[1][3] = 0;
-	m.raw[2][0] = 0;	m.raw[2][1] = 0;	m.raw[2][2] = z;	m.raw[2][3] = 0;
-	m.raw[3][0] = 0;	m.raw[3][1] = 0;	m.raw[3][2] = 0;	m.raw[3][3] = 1;
+	m.data[0][0] = x;	m.data[0][1] = 0;	m.data[0][2] = 0;	m.data[0][3] = 0;
+	m.data[1][0] = 0;	m.data[1][1] = y;	m.data[1][2] = 0;	m.data[1][3] = 0;
+	m.data[2][0] = 0;	m.data[2][1] = 0;	m.data[2][2] = z;	m.data[2][3] = 0;
+	m.data[3][0] = 0;	m.data[3][1] = 0;	m.data[3][2] = 0;	m.data[3][3] = 1;
 
 	return m4_mul(transMat, m);
 }
@@ -61,25 +77,25 @@ m4 m4_init_ortho(float l, float r, float b, float t, float n, float f)
 {
 	m4 m;
 
-	m.raw[0][0] = 2 / (r - l);
-	m.raw[0][1] = 0;
-	m.raw[0][2] = 0;
-	m.raw[0][3] = 0;
+	m.data[0][0] = 2 / (r - l);
+	m.data[0][1] = 0;
+	m.data[0][2] = 0;
+	m.data[0][3] = 0;
 
-	m.raw[1][0] = 0;
-	m.raw[1][1] = 2 / (t - b);
-	m.raw[1][2] = 0;
-	m.raw[1][3] = 0;
+	m.data[1][0] = 0;
+	m.data[1][1] = 2 / (t - b);
+	m.data[1][2] = 0;
+	m.data[1][3] = 0;
 
-	m.raw[2][0] = 0;
-	m.raw[2][1] = 0;
-	m.raw[2][2] = -2 / (f - n);
-	m.raw[2][3] = 0;
+	m.data[2][0] = 0;
+	m.data[2][1] = 0;
+	m.data[2][2] = -2 / (f - n);
+	m.data[2][3] = 0;
 
-	m.raw[3][0] = -(r + l) / (r - l);
-	m.raw[3][1] = -(t + b) / (t - b); 
-	m.raw[3][2] = -(f + n) / (f - n); 
-	m.raw[3][3] = 1;
+	m.data[3][0] = -(r + l) / (r - l);
+	m.data[3][1] = -(t + b) / (t - b); 
+	m.data[3][2] = -(f + n) / (f - n); 
+	m.data[3][3] = 1;
 
 	return m;
 }
