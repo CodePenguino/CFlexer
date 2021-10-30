@@ -29,20 +29,44 @@ m3 m3_mul(m3 first, m3 second)
 	return m;
 }
 
-m3 m3_translate(m3 m, v2 v)
+m3 m3_translate(m3 transMat, v2 v)
 {
+	m3 m;
+
+	m.data[0][0] = 1;	m.data[0][1] = 0;	m.data[0][2] = v.x;
+	m.data[1][0] = 0;	m.data[1][1] = 1;	m.data[1][2] = v.y;
+	m.data[2][0] = 0;	m.data[2][1] = 0;	m.data[2][2] = 1;
+	
+	return m3_mul(transMat, m);
+
+	/*m3 m;
+
 	m.data[2][0] = m.data[0][0] * v.x + m.data[1][0] * v.y + m.data[2][0];
 	m.data[2][1] = m.data[0][1] * v.x + m.data[1][1] * v.y + m.data[2][1];
 	m.data[2][2] = m.data[0][2] * v.x + m.data[1][2] * v.y + m.data[2][2];
+
+	return m3_mul(transMat, m);*/
 }
 
-void m3_rotate(m3 m, float angle)
+m3 m3_rotate(m3 transMat, float angle)
 {
-float m00 = m.data[0][0],  m10 = m.data[1][0],
-      m01 = m.data[0][1],  m11 = m.data[1][1],
-      m02 = m.data[0][2],  m12 = m.data[1][2];
+	m3 m;
 
-	float sine = sinf(angle);
+	angle = degrees_to_radians(angle);
+
+	m.data[0][0] = cosf(angle);		m.data[0][1] = -sinf(angle);	m.data[0][2] = 0;
+	m.data[1][0] = sinf(angle);		m.data[1][1] = cosf(angle);		m.data[1][2] = 0;
+	m.data[2][0] = 0;				m.data[2][1] = 0;				m.data[2][2] = 1;
+
+	return m3_mul(transMat, m);
+
+	/*m3 m;
+
+	float m00 = m.data[0][0],  m10 = m.data[1][0],
+    m01 = m.data[0][1],  m11 = m.data[1][1],
+    m02 = m.data[0][2],  m12 = m.data[1][2];
+
+	float sine   = sinf(angle);
 	float cosine = cosf(angle);
 
 	m.data[0][0] = m00 * cosine + m10 * sine;
@@ -53,11 +77,21 @@ float m00 = m.data[0][0],  m10 = m.data[1][0],
 	m.data[1][1] = m01 * -sine + m11 * cosine;
 	m.data[1][2] = m02 * -sine + m12 * cosine;
 
-
+	return m3_mul(transMat, m);*/
 }
 
-m3 m3_scale(m3 m, v2 v)
+m3 m3_scale(m3 transMat, v2 v)
 {
+	m3 m;
+
+	m.data[0][0] = v.x;	m.data[0][1] = 0;	m.data[0][2] = 0;
+	m.data[1][0] = 0;	m.data[1][1] = v.y;	m.data[1][2] = 0;
+	m.data[2][0] = 0;	m.data[2][1] = 0;	m.data[2][2] = 1;
+
+	return m3_mul(transMat, m);
+
+	/*m3 m;
+
 	m.data[0][0] = m.data[0][0] * v.x;
 	m.data[0][1] = m.data[0][1] * v.x;
 	m.data[0][2] = m.data[0][2] * v.x;
@@ -65,4 +99,6 @@ m3 m3_scale(m3 m, v2 v)
 	m.data[1][0] = m.data[1][0] * v.y;
 	m.data[1][1] = m.data[1][1] * v.y;
 	m.data[1][2] = m.data[1][2] * v.y;
+
+	return m3_mul(transMat, m);*/
 }

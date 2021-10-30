@@ -36,3 +36,8 @@ void time_update()
 
 	time_ticks++;
 }
+
+float time_getFPS()
+{
+	return 1.0f / delta_time;
+}

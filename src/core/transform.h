@@ -12,9 +12,12 @@ typedef struct
 	m4 modelMatrix;
 } Transform2d;
 
+/*m4 transform2d_get_mat(Transform2d* transform);
+m4 transform2d_get_ortho(Transform2d* transform);
+m4 transform2d_get_perspective(Transform2d* transform);*/
+
 m4 transform2d_get_mat(Transform2d* transform);
 m4 transform2d_get_ortho(Transform2d* transform);
-m4 transform2d_get_perspective(Transform2d* transform);
 
 typedef struct
 {
@@ -22,6 +25,6 @@ typedef struct
 	v3 scale;
 } Transform3d;
 
-m4 transform3d_get_mat(Transform3d transform);
+m4 transform3d_get_mat(Transform3d* transform);
 
 #endif // TRANSFORM_H

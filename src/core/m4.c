@@ -49,7 +49,6 @@ m4 m4_init_translation(m4 transMat, float x, float y, float z)
 m4 m4_init_rotation(m4 transMat, float rot)
 {
 	m4 m;
-	v2 rotation; 
 
 	rot = degrees_to_radians(rot);
 
@@ -96,6 +95,31 @@ m4 m4_init_ortho(float l, float r, float b, float t, float n, float f)
 	m.data[3][1] = -(t + b) / (t - b); 
 	m.data[3][2] = -(f + n) / (f - n); 
 	m.data[3][3] = 1;
+
+	return m;
+}
+
+m4 m3_to_m4(m3 tmat)
+{
+	m4 m;
+
+	// Set the first 9 elements in the matrix through a simple for loop
+	for(u8 i = 0; i < 3; i++)
+	{
+		for(u8 j = 0; j < 3; j++)
+		{
+			m.data[i][j] = tmat.data[i][j];
+		}
+	}
+
+	m.data[0][3] = 0;
+	m.data[1][3] = 0;
+	m.data[2][3] = 0;
+	m.data[3][3] = 1;
+
+	m.data[3][0] = 0;
+	m.data[3][1] = 0;
+	m.data[3][2] = 0;
 
 	return m;
 }

@@ -4,13 +4,8 @@
 #include "shader.h"
 #include "mesh.h"
 
-typedef struct
-{
-	Shader shader;
-} Renderer;
-
 extern GLint transformID;
 
-void draw_sprite(Renderer renderer, Sprite sprite);
+void draw_sprite(Shader shader, Sprite sprite);
 
 #endif // RENDERER_H

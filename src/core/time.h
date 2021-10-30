@@ -8,5 +8,6 @@ extern u64 time_ticks;
 
 void time_init();
 void time_update();
+float time_getFPS();
 
 #endif // TIME_H

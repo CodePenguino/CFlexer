@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 #define MAX_KEYS	512
-#define MAX_BUTTONS 8
+#define MAX_BUTTONS 20
 
 struct InputControl
 {

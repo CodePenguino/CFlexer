@@ -6,6 +6,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
+// Loads a texture in either RGB or RGBA format
 void texture_init(Texture* self, const char* fileName)
 {
 	if(fileName == NULL) { fileName = "../res/Flexer_MISSING_TEXTURE.png"; }
@@ -29,11 +30,12 @@ void texture_init(Texture* self, const char* fileName)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, nrChannels == 3 ? GL_RGB : GL_RGBA, GL_UNSIGNED_BYTE, data);
 
 	stbi_image_free(data);
 }
 
+// Binds/uses a texture with unit "unit"
 void texture_bind(Texture* self, GLuint unit)
 {
 	assert(unit >= 0 && unit <= 31);
@@ -42,6 +44,7 @@ void texture_bind(Texture* self, GLuint unit)
 	glBindTexture(GL_TEXTURE_2D, self->id);
 }
 
+// Banishes a texture to the shadow realm
 void texture_destroy(Texture* self)
 {
 	glDeleteTextures(1, &self->id);
