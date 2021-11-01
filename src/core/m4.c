@@ -28,9 +28,9 @@ m4 m4_mul(m4 first, m4 second)
 		for(u8 j = 0; j < 4; j++)
 		{
 			m.data[i][j] = first.data[i][0] * second.data[0][j] +
-						  first.data[i][1] * second.data[1][j] +
-						  first.data[i][2] * second.data[2][j] +
-						  first.data[i][3] * second.data[3][j];
+						   first.data[i][1] * second.data[1][j] +
+						   first.data[i][2] * second.data[2][j] +
+						   first.data[i][3] * second.data[3][j];
 		}
 	}
 

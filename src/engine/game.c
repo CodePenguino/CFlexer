@@ -35,7 +35,7 @@ static void update()
 void game_start()
 {
 	window_create(1024, 768, "It's a window!");
-	window_setBackgroundImage("../res/images/iconic.png");
+	window_setBackgroundImage("../res/images/clouds.png");
 	window_setFunctions(processInputs, update);
 
 	spriteShader = shader_init("../res/shaders/sprite.vs", "../res/shaders/sprite.fs");
