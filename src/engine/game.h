@@ -11,7 +11,7 @@ void game_start();
 void game_stop();
 void game_loop();
 
-Shader shader;
+Shader spriteShader;
 Sprite sprite;
 Sprite sprite2;
 

@@ -17,6 +17,7 @@ typedef struct
 } Sprite;
 
 Sprite sprite_init(const char* texture_path);
+Sprite sprite_init_background(const char* texture_path);
 void sprite_draw(Sprite self);
 void sprite_destroy(Sprite self);
 

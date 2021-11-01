@@ -37,13 +37,13 @@ float benchmark_end_time;
 	printf("Benchmark: %f\n", benchmark_end_time - benchmark_start_time);
 
 // Set up the width and height of the vertices
-const static GLfloat sprite_default_vertices[] = {
-		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,
-		0.5f, -0.5f, 0.0f,     1.0f, 0.0f,
-	-0.5f, -0.5f, 0.0f,     0.0f, 0.0f,
-	-0.5f,  0.5f, 0.0f,     0.0f, 1.0f
+const static GLfloat sprite_default_vertices[16] = {
+	0.5f,  0.5f,     1.0f, 1.0f,
+	0.5f, -0.5f,     1.0f, 0.0f,
+   -0.5f, -0.5f,     0.0f, 0.0f,
+   -0.5f,  0.5f,     0.0f, 1.0f
 };
-const static GLuint sprite_default_indices[] = {
+const static GLuint sprite_default_indices[6] = {
 	0, 1, 3,
 	1, 2, 3
 };

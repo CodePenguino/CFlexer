@@ -31,11 +31,61 @@ Sprite sprite_init(const char* texture_path)
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(sprite_default_indices), sprite_default_indices, GL_STATIC_DRAW);
 
 	// Position attribute setup
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
 
 	// Texture attribute setup
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)(2 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(1);
+
+	// Unbind everything
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+
+	return self;
+}
+
+Sprite sprite_init_background(const char* texture_path)
+{
+	Sprite self;
+
+	// Load up a texture
+	texture_init(&self.texture, texture_path);
+
+	self.transform.position.x = 0.0f;
+	self.transform.position.y = 0.0f;
+	self.transform.scale.x = 1.0f;
+	self.transform.scale.y = 1.0f;
+
+	GLfloat sprite_verts[16] = {
+		1.0f,  1.0f,     1.0f, 1.0f,
+		1.0f, -1.0f,     1.0f, 0.0f,
+	   -1.0f, -1.0f,     0.0f, 0.0f,
+	   -1.0f,  1.0f,     0.0f, 1.0f
+	};
+
+	// Generate the buffers and the vertex array
+	glGenVertexArrays(1, &self.VAO);
+	glGenBuffers(1, &self.VBO);
+	glGenBuffers(1, &self.EBO);
+	
+	// Bind that VAO!
+	glBindVertexArray(self.VAO);
+
+	// Setup for VBO
+	glBindBuffer(GL_ARRAY_BUFFER, self.VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(sprite_verts), sprite_verts, GL_STATIC_DRAW);
+	
+	// Setup for EBO
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(sprite_default_indices), sprite_default_indices, GL_STATIC_DRAW);
+
+	// Position attribute setup
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+
+	// Texture attribute setup
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)(2 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(1);
 
 	// Unbind everything

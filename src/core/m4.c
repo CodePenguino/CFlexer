@@ -3,7 +3,9 @@
 #include "../common/util.h"
 #include <math.h>
 #include "vec2.h"
+#include <stdio.h>
 
+// Basic initialization for a 4x4 matrix
 m4 m4_init_identity()
 {
 	m4 m;
@@ -16,6 +18,7 @@ m4 m4_init_identity()
 	return m;
 }
 
+// Multiplies two 4x4 matrices into one
 m4 m4_mul(m4 first, m4 second)
 {
 	m4 m;
@@ -34,7 +37,8 @@ m4 m4_mul(m4 first, m4 second)
 	return m;
 }
 
-m4 m4_init_translation(m4 transMat, float x, float y, float z)
+// Translates a 4x4 matrix by x, y, and z
+m4 m4_translate(m4 transMat, float x, float y, float z)
 {
 	m4 m;
 
@@ -46,7 +50,8 @@ m4 m4_init_translation(m4 transMat, float x, float y, float z)
 	return m4_mul(transMat, m);
 }
 
-m4 m4_init_rotation(m4 transMat, float rot)
+// Rotates a 4x4 matrix in 2D
+m4 m4_rotate(m4 transMat, float rot)
 {
 	m4 m;
 
@@ -60,7 +65,8 @@ m4 m4_init_rotation(m4 transMat, float rot)
 	return m4_mul(transMat, m);
 }
 
-m4 m4_init_scale(m4 transMat, float x, float y, float z)
+// Scales a 4x4 matrix by x, y, and z
+m4 m4_scale(m4 transMat, float x, float y, float z)
 {
 	m4 m;
 
@@ -72,29 +78,15 @@ m4 m4_init_scale(m4 transMat, float x, float y, float z)
 	return m4_mul(transMat, m);
 }
 
-m4 m4_init_ortho(float l, float r, float b, float t, float n, float f)
+// Sets an orthographic view projection
+m4 m4_ortho(float l, float r, float b, float t, float n, float f)
 {
 	m4 m;
 
-	m.data[0][0] = 2 / (r - l);
-	m.data[0][1] = 0;
-	m.data[0][2] = 0;
-	m.data[0][3] = 0;
-
-	m.data[1][0] = 0;
-	m.data[1][1] = 2 / (t - b);
-	m.data[1][2] = 0;
-	m.data[1][3] = 0;
-
-	m.data[2][0] = 0;
-	m.data[2][1] = 0;
-	m.data[2][2] = -2 / (f - n);
-	m.data[2][3] = 0;
-
-	m.data[3][0] = -(r + l) / (r - l);
-	m.data[3][1] = -(t + b) / (t - b); 
-	m.data[3][2] = -(f + n) / (f - n); 
-	m.data[3][3] = 1;
+	m.data[0][0] = 2 / (r - l);			m.data[0][1] = 0;					m.data[0][2] = 0;					m.data[0][3] = 0;
+	m.data[1][0] = 0;					m.data[1][1] = 2 / (t - b);			m.data[1][2] = 0;					m.data[1][3] = 0;
+	m.data[2][0] = 0;					m.data[2][1] = 0;					m.data[2][2] = -2 / (f - n);		m.data[2][3] = 0;
+	m.data[3][0] = -(r + l) / (r - l);	m.data[3][1] = -(t + b) / (t - b); 	m.data[3][2] = -(f + n) / (f - n); 	m.data[3][3] = 1;
 
 	return m;
 }
@@ -112,6 +104,7 @@ m4 m3_to_m4(m3 tmat)
 		}
 	}
 
+	// This might be wrong, but I just set the rest of these to pretty common values
 	m.data[0][3] = 0;
 	m.data[1][3] = 0;
 	m.data[2][3] = 0;
@@ -124,17 +117,20 @@ m4 m3_to_m4(m3 tmat)
 	return m;
 }
 
-m4 m4_init_perspective(float fov, float aspect, float zNear, float zFar)
+// TODO: Implement perspective
+m4 m4_perspective(float fov, float aspect, float zNear, float zFar)
 {
-	/*m4 m;
+	printf("CodePingu, the creator of this project, forgot to implement perspective. Sorry about that!\n");
 
-	float tanHalfFOV = tanf(fov / 2);
-	float zRange = zNear - zFar;
+	// m4 m;
 
-	m.m[0][0] = 1.0f / (tanHalfFOV * aspect);	m.m[0][1] = 0;					m.m[0][2] = 0;						m.m[0][3] = 0;
-	m.m[1][0] = 0;								m.m[1][1] = 1.0f / tanHalfFOV;	m.m[1][2] = 0;						m.m[1][3] = 0;
-	m.m[2][0] = 0;								m.m[2][1] = 0;					m.m[2][2] = (-zNear -zFar)/zRange;	m.m[2][3] = 2 * zFar * zNear / zRange;
-	m.m[3][0] = 0;								m.m[3][1] = 0;					m.m[3][2] = 1;						m.m[3][3] = 0;
+	// float tanHalfFOV = tanf(fov / 2);
+	// float zRange = zNear - zFar;
 
-	return m;*/
+	// m.m[0][0] = 1.0f / (tanHalfFOV * aspect);	m.m[0][1] = 0;					m.m[0][2] = 0;						m.m[0][3] = 0;
+	// m.m[1][0] = 0;								m.m[1][1] = 1.0f / tanHalfFOV;	m.m[1][2] = 0;						m.m[1][3] = 0;
+	// m.m[2][0] = 0;								m.m[2][1] = 0;					m.m[2][2] = (-zNear -zFar)/zRange;	m.m[2][3] = 2 * zFar * zNear / zRange;
+	// m.m[3][0] = 0;								m.m[3][1] = 0;					m.m[3][2] = 1;						m.m[3][3] = 0;
+
+	// return m;
 }

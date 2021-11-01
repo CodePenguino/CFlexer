@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../core/time.h"
+#include "renderer.h"
 
 // Callbackers!
 static void resize_callback(GLFWwindow* winHandle, int width, int height)
@@ -9,6 +10,7 @@ static void resize_callback(GLFWwindow* winHandle, int width, int height)
 	glViewport(0, 0, width, height);
 	window.width = width;
 	window.height = height;
+	window.aspectRatio = (float)width/height;
 }
 
 static void key_callback(GLFWwindow* winHandle, int key, int scancode, int action, int mods)
@@ -61,6 +63,8 @@ void window_create(u32 width, u32 height, const char* title)
 
 	window.width  = width;
 	window.height = height;
+	window.aspectRatio = (float)width/height;
+	window.has_background_image = false;
 
 	if(!glfwInit())
 	{
@@ -98,6 +102,9 @@ void window_create(u32 width, u32 height, const char* title)
 		glfwTerminate();
 		exit(1);
 	}
+
+	// window.backgroundImage = sprite_init_params("../res/images/iconic.png", 1.0f);
+	background_shader = shader_init("../res/shaders/background.vs", "../res/shaders/background.fs");
 }
 
 void window_setFunctions(void (*procInputs)(void), void (*upd)(void))
@@ -127,6 +134,10 @@ void window_mainloop()
 		processInputsCallback();
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		shader_use(background_shader);
+		shader_set_float(background_shader, "aspectRatio", window.aspectRatio);
+		sprite_draw(window.backgroundImage);
+
 		updateCallback();
 
 		glfwSwapBuffers(window.handle);
@@ -134,7 +145,7 @@ void window_mainloop()
 	}
 }
 
-float window_getAspectRatio()
+/*float window_getAspectRatio()
 {
 	if(window.height <= 0)
 	{
@@ -142,7 +153,7 @@ float window_getAspectRatio()
 	}
 
 	return (float)window.width / window.height;
-}
+}*/
 
 void window_close()
 {
@@ -151,6 +162,12 @@ void window_close()
 
 void window_destroy()
 {
+	shader_destroy(background_shader);
+	if(window.has_background_image == true)
+	{
+		sprite_destroy(window.backgroundImage);
+	}
+
 	glfwDestroyWindow(window.handle);
 	glfwTerminate();
 }
@@ -164,6 +181,12 @@ void window_setBackgroundColorRGBA(float r, float g, float b, float a)
 void window_setBackgroundColorRGB(float r, float g, float b)
 {
 	glClearColor(r,g,b,1.0f);
+}
+
+void window_setBackgroundImage(const char* filePath)
+{
+	window.has_background_image = true;
+	window.backgroundImage = sprite_init_background(filePath);
 }
 
 // The code for this is copied from this github link: https://github.com/glfw/glfw/issues/310

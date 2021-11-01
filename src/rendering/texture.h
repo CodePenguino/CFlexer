@@ -3,13 +3,14 @@
 
 #include <GL/glew.h>
 #include "../common/util.h"
+#include <stdbool.h>
 
 typedef struct
 {
 	GLuint id;
 
-	u16 width;
-	u16 height;
+	u16 width, height;
+	i32 offsetX, offsetY;
 } Texture;
 
 void texture_init(Texture* self, const char* fileName);

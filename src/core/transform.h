@@ -8,17 +8,12 @@ typedef struct
 	v2 position;
 	float rotation;
 	v2 scale;
-
-	m4 modelMatrix;
 } Transform2d;
-
-/*m4 transform2d_get_mat(Transform2d* transform);
-m4 transform2d_get_ortho(Transform2d* transform);
-m4 transform2d_get_perspective(Transform2d* transform);*/
 
 m4 transform2d_get_mat(Transform2d* transform);
 m4 transform2d_get_ortho(Transform2d* transform);
 
+// TODO: Create quaternion (v4) rotation
 typedef struct
 {
 	v3 position;

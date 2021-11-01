@@ -12,8 +12,9 @@
 
 typedef GLuint Shader;
 
+// Shader shader_init(char* vertexFilePath, char* fragmentFilePath);
 Shader shader_init(char* vertexFilePath, char* fragmentFilePath);
-void shader_bind(Shader self);
+void shader_use(Shader self);
 void shader_destroy(Shader self);
 
 // Set functions for uniform variables

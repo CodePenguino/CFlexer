@@ -1,12 +1,13 @@
 #include "shader.h"
 #include <stdio.h>
-#include <stdbool.h>
 #include "../common/util.h"
 #include <stdlib.h>
 #include "renderer.h"
+#include <assert.h>
+#include <string.h>
 
-static void shader_check_error(GLuint shader, GLuint flag, bool isProgram, const char* error_message);
-static GLuint shader_create(char* text, GLenum shaderType);
+void shader_check_error(GLuint shader, GLuint flag, bool isProgram, const char* error_message);
+GLuint shader_create(char* text, GLenum type);
 
 Shader shader_init(char* vertexFilePath, char* fragmentFilePath)
 {
@@ -32,9 +33,14 @@ Shader shader_init(char* vertexFilePath, char* fragmentFilePath)
 	glDetachShader(self, fragmentShader);
 	glDeleteShader(fragmentShader);
 
-	transformID = glGetUniformLocation(self, "transform");
+	// transformID = glGetUniformLocation(self, "transform");
 
 	return self;
+}
+
+Shader init_background_shader(char* vertexFilePath, char* fragmentFilePath)
+{
+	
 }
 
 void shader_destroy(Shader self)
@@ -42,14 +48,14 @@ void shader_destroy(Shader self)
 	glDeleteProgram(self);
 }
 
-void shader_bind(Shader self)
+void shader_use(Shader self)
 {
 	glUseProgram(self);
 }
 
-static GLuint shader_create(char* text, GLenum shaderType)
+GLuint shader_create(char* text, GLenum type)
 {
-	GLuint shader = glCreateShader(shaderType);
+	GLuint shader = glCreateShader(type);
 
 	if(shader == GL_FALSE)
 	{
@@ -67,7 +73,7 @@ static GLuint shader_create(char* text, GLenum shaderType)
 	return shader;
 }
 
-static void shader_check_error(GLuint shader, GLuint flag, bool isProgram, const char* error_message)
+void shader_check_error(GLuint shader, GLuint flag, bool isProgram, const char* error_message)
 {
 	GLint success = 0;
 	GLchar error[512] = { 0 };
@@ -136,7 +142,7 @@ void shader_set_m3(Shader shader, const char* name, m3 mat)
 
 void shader_set_m4_wID(Shader shader, GLint ID, m4 mat)
 {
-	glUniformMatrix4fv(transformID, 1, GL_TRUE, &mat.data[0][0]);
+	glUniformMatrix4fv(ID, 1, GL_TRUE, &mat.data[0][0]);
 }
 
 void shader_set_m4(Shader shader, const char* name, m4 mat)
