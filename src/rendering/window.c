@@ -134,9 +134,12 @@ void window_mainloop()
 		processInputsCallback();
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		shader_use(background_shader);
-		shader_set_float(background_shader, "aspectRatio", window.aspectRatio);
-		sprite_draw(window.backgroundImage);
+		if(window.has_background_image == true)
+		{
+			shader_use(background_shader);
+			shader_set_float(background_shader, "windowAspectRatio", window.aspectRatio);
+			sprite_draw(window.backgroundImage);
+		}
 
 		updateCallback();
 
