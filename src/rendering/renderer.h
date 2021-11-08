@@ -4,6 +4,9 @@
 #include "shader.h"
 #include "mesh.h"
 
-void draw_sprite(Shader shader, Sprite sprite);
+static Shader render_shader;
+
+void renderer_use_shader(Shader shader);
+void draw_sprite(/*Shader shader, */Sprite sprite);
 
 #endif // RENDERER_H

@@ -103,10 +103,10 @@ void window_create(u32 width, u32 height, const char* title)
 		exit(1);
 	}
 
-	// window.backgroundImage = sprite_init_params("../res/images/iconic.png", 1.0f);
 	background_shader = shader_init("../res/shaders/background.vs", "../res/shaders/background.fs");
 }
 
+// Set window functions (important)
 void window_setFunctions(void (*procInputs)(void), void (*upd)(void))
 {
 	// Error check. If we don't exit, we might get some "segmentation fault" errors on Linux
@@ -126,6 +126,7 @@ void window_setFunctions(void (*procInputs)(void), void (*upd)(void))
 	updateCallback = upd;
 }
 
+// Run the main loop for the window
 void window_mainloop()
 {
 	while(!glfwWindowShouldClose(window.handle))
@@ -134,7 +135,7 @@ void window_mainloop()
 		processInputsCallback();
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		if(window.has_background_image == true)
+		if(window.has_background_image)
 		{
 			shader_use(background_shader);
 			shader_set_float(background_shader, "windowAspectRatio", window.aspectRatio);
@@ -148,21 +149,13 @@ void window_mainloop()
 	}
 }
 
-/*float window_getAspectRatio()
-{
-	if(window.height <= 0)
-	{
-		return 1.0f;
-	}
-
-	return (float)window.width / window.height;
-}*/
-
+// Close the window
 void window_close()
 {
 	glfwSetWindowShouldClose(window.handle, GL_TRUE);
 }
 
+// Banish the window into the shadow realm
 void window_destroy()
 {
 	shader_destroy(background_shader);
@@ -175,6 +168,7 @@ void window_destroy()
 	glfwTerminate();
 }
 
+// Set the background color in the RGBA format
 void window_setBackgroundColorRGBA(float r, float g, float b, float a)
 {
 	glClearColor(r,g,b,a);
@@ -186,6 +180,8 @@ void window_setBackgroundColorRGB(float r, float g, float b)
 	glClearColor(r,g,b,1.0f);
 }
 
+// TODO: Make this render first without glDepthTest or something
+// Set the background image
 void window_setBackgroundImage(const char* filePath)
 {
 	window.has_background_image = true;

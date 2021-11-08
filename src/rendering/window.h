@@ -20,13 +20,13 @@ typedef struct
 } Window; Window window;
 
 static Shader background_shader;
+static GLint winAspectRatioLocation;
 
 void window_center();
 void window_create(u32 width, u32 height, const char* title);
 void window_setFunctions(void (*procInputs)(void), void (*upd)(void));
 
 void window_mainloop();
-// float window_getAspectRatio();
 void window_close();
 void window_destroy();
 
@@ -34,7 +34,7 @@ void window_setBackgroundColorRGBA(float r, float g, float b, float a);
 void window_setBackgroundColorRGB(float r, float g, float b);
 void window_setBackgroundImage(const char* filePath);
 
-static void (*processInputsCallback)(void);
-static void (*updateCallback)(void);
+const static void (*processInputsCallback)(void);
+const static void (*updateCallback)(void);
 
 #endif // WINDOW_H

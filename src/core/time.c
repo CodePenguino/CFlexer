@@ -1,6 +1,5 @@
 #include "time.h"
 #include <GLFW/glfw3.h>
-#include <stdio.h>
 
 #ifdef _WIN32
 #include <Windows.h>
@@ -11,7 +10,7 @@
 float last_time, now_time, delta_time, FPSLimit;
 u64 time_ticks;
 
-// Initializes FPSLimit
+// Initializes time variables
 void time_init()
 {
 	time_ticks = 0.0f;
@@ -24,19 +23,26 @@ void time_update()
 	now_time = glfwGetTime();
 	delta_time = now_time - last_time;
 
+	// Prevents the program from freezing just in case
 	if(FPSLimit != 0)
 	{
-		while(glfwGetTime() < last_time + 1.0/FPSLimit)
+		// While the FPS is larger than the FPS limit, put the thread to sleep
+		while(glfwGetTime() < last_time + 1.0f / FPSLimit)
 		{
-			usleep(1);
+			// Why is this function called different on Windows & Linux?!
+			#ifdef _WIN32
+			Sleep(0.005);
+			#else
+			sleep(0.005);
+			#endif
 		}
 	}
 
 	last_time = now_time;
-
 	time_ticks++;
 }
 
+// Return the frame rate
 float time_getFPS()
 {
 	return 1.0f / delta_time;

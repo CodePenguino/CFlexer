@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "engine/game.h"
 #include "common/util.h"
 

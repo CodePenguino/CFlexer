@@ -1,24 +1,23 @@
 #include "game.h"
 #include "../core/time.h"
 #include "../core/math.h"
+#include "../ecs/flecs.h"
 
 float temp = 0.0f;
 float sinTemp;
 float cosTemp;
 
-static void processInputs()
+const static void processInputs()
 {
-	
+
 }
 
-static void update()
+const static void update()
 {
+	// Set up temporary variables
 	temp += delta_time;
 	sinTemp = sinf(temp);
 	cosTemp = cosf(temp);
-
-	/*shader_use(backgroundShader);
-	draw_sprite(backgroundShader, window.backgroundImage);*/
 
 	shader_use(spriteShader);
 
@@ -28,8 +27,8 @@ static void update()
 	sprite2.transform.position.y = -cosTemp;
 	sprite2.transform.rotation = temp * 90;
 
-	draw_sprite(spriteShader, sprite);
-	draw_sprite(spriteShader, sprite2);
+	draw_sprite(sprite);
+	draw_sprite(sprite2);
 }
 
 void game_start()
@@ -38,9 +37,15 @@ void game_start()
 	window_setBackgroundImage("../res/images/clouds.png");
 	window_setFunctions(processInputs, update);
 
+	ecs_world_t *ecs = ecs_init();
+
+	
+
 	spriteShader = shader_init("../res/shaders/sprite.vs", "../res/shaders/sprite.fs");
 	sprite = sprite_init("../res/images/Placeholder.png");
 	sprite2 = sprite_init("../res/images/workInProgress.png");
+
+	renderer_use_shader(spriteShader);
 
 	game_loop();
 	game_stop();

@@ -114,6 +114,11 @@ void shader_set_float(Shader shader, const char* name, float value)
 	glUniform1f(glGetUniformLocation(shader, name), value);
 }
 
+void shader_set_float_with_location(GLint ID, float value)
+{
+	glUniform1f(ID, value);
+}
+
 void shader_set_v2(Shader shader, const char* name, v2 value)
 {
 	float vector2[2] = { value.x, value.y };
