@@ -34,7 +34,7 @@ void window_setBackgroundColorRGBA(float r, float g, float b, float a);
 void window_setBackgroundColorRGB(float r, float g, float b);
 void window_setBackgroundImage(const char* filePath);
 
-const static void (*processInputsCallback)(void);
-const static void (*updateCallback)(void);
+static void (*processInputsCallback)(void);
+static void (*updateCallback)(void);
 
 #endif // WINDOW_H
