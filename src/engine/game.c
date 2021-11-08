@@ -1,7 +1,6 @@
 #include "game.h"
 #include "../core/time.h"
 #include "../core/math.h"
-#include "../ecs/flecs.h"
 
 float temp = 0.0f;
 float sinTemp;
