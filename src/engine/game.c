@@ -7,12 +7,12 @@ float temp = 0.0f;
 float sinTemp;
 float cosTemp;
 
-const static void processInputs()
+static void processInputs()
 {
 
 }
 
-const static void update()
+static void update()
 {
 	// Set up temporary variables
 	temp += delta_time;
