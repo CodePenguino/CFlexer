@@ -36,10 +36,6 @@ void game_start()
 	window_setBackgroundImage("../res/images/clouds.png");
 	window_setFunctions(processInputs, update);
 
-	ecs_world_t *ecs = ecs_init();
-
-	
-
 	spriteShader = shader_init("../res/shaders/sprite.vs", "../res/shaders/sprite.fs");
 	sprite = sprite_init("../res/images/Placeholder.png");
 	sprite2 = sprite_init("../res/images/workInProgress.png");
