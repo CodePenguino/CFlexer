@@ -8,7 +8,7 @@ char* read_file(char *filename)
 {
 	char *buffer = NULL;
 	int string_size, read_size;
-	FILE *handler = fopen(filename, "r");
+	FILE *handler = fopen(filename, "rb");
 
 	if (handler)
 	{
