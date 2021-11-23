@@ -1,14 +1,17 @@
 #include "keyboard.h"
 
+bool keys[MAX_KEYS];
+bool mouseButtons[MAX_BUTTONS];
+
 bool isKeyPressed(int keyCode)
 {
 	if(keyCode > MAX_KEYS)
 	{
 		fprintf(stderr, "Keyboard error: keyCode is %d, which is higher than maximum! Increase MAX_KEYS maybe?\n",
-				keyCode);
+			keyCode);
 	}
 
-	if(Input.keys[keyCode])
+	if(keys[keyCode])
 	{
 		return true;
 	}
@@ -24,7 +27,7 @@ bool isMouseButtonPressed(int button)
 				button);
 	}
 
-	if(Input.mouseButtons[button])
+	if(mouseButtons[button])
 	{
 		return true;
 	}

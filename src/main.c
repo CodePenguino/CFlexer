@@ -1,5 +1,4 @@
 #include "engine/game.h"
-#include "common/util.h"
 
 int main(int argc, char** argv)
 {

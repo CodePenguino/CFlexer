@@ -4,7 +4,7 @@
 #include <GL/glew.h>
 #include "../common/util.h"
 #include "texture.h"
-#include "../core/transform.h"
+#include "../ecs/transform.h"
 
 typedef struct
 {	

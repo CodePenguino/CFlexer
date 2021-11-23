@@ -2,10 +2,9 @@
 #define GAME_H
 
 #include "../rendering/window.h"
-#include "../rendering/mesh.h"
-#include "../rendering/shader.h"
 #include "../rendering/renderer.h"
-#include "../core/transform.h"
+#include "../ecs/transform.h"
+#include "../ecs/camera.h"
 
 void game_start();
 void game_stop();

@@ -20,8 +20,6 @@ char* read_file(char *filename);
 // Common math functions
 #define degrees_to_radians(angleInDegrees) ((angleInDegrees) * M_PI / 180.0f)
 #define radians_to_degrees(angleInRadians) ((angleInRadians) * 180.0f / M_PI)
-/*void print_vec3_p(vec3* vector);
-void print_vec3(vec3 vector);*/
 
 float get_time_elapsed();
 
@@ -36,13 +34,14 @@ float benchmark_end_time;
 	stop_benchmark();\
 	printf("Benchmark: %f\n", benchmark_end_time - benchmark_start_time);
 
-// Set up the width and height of the vertices
+// TODO: Set up the width and height of the vertices depending on resolution
 const static GLfloat sprite_default_vertices[16] = {
-	0.5f,  0.5f,     1.0f, 1.0f,
-	0.5f, -0.5f,     1.0f, 0.0f,
-   -0.5f, -0.5f,     0.0f, 0.0f,
-   -0.5f,  0.5f,     0.0f, 1.0f
+	 0.5f,  0.5f,    1.0f, 1.0f,
+	 0.5f, -0.5f,    1.0f, 0.0f,
+	-0.5f, -0.5f,    0.0f, 0.0f,
+ 	-0.5f,  0.5f,    0.0f, 1.0f
 };
+
 const static GLuint sprite_default_indices[6] = {
 	0, 1, 3,
 	1, 2, 3

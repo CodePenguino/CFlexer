@@ -22,7 +22,7 @@ add_executable(CFlexer ${HDRS} ${SRCS})
 target_include_directories(CFlexer PRIVATE "${CFlexer_SOURCE_DIR}/include/")
 
 # Set up Pthread
-set(THREADS_PREFER_PTHREAD_FLAG ON)
+# set(THREADS_PREFER_PTHREAD_FLAG ON)
 # find_package(Threads REQUIRED)
 # target_link_libraries(CFlexer PRIVATE Threads::Threads)
 
@@ -30,13 +30,13 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(GLEW REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)
-find_package(Threads REQUIRED)
+# find_package(Threads REQUIRED)
 
 # Link the libraries used
 target_link_libraries(CFlexer -lm glfw)
 target_link_libraries(CFlexer -lm ${GLEW_LIBRARIES})
 target_link_libraries(CFlexer -lm ${OPENGL_LIBRARIES})
-target_link_libraries(CFlexer -lm Threads::Threads)
+# target_link_libraries(CFlexer -lm Threads::Threads)
 
 # Include the libraries used
 target_include_directories(CFlexer PRIVATE glfw)

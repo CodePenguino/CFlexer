@@ -8,7 +8,25 @@ float cosTemp;
 
 static void processInputs()
 {
+	if(isKeyPressed(GLFW_KEY_UP))
+	{
+		camera.transform.position.y += 1.0f * delta_time;
+	}
 
+	if(isKeyPressed(GLFW_KEY_DOWN))
+	{
+		camera.transform.position.y -= 1.0f * delta_time;
+	}
+
+	if(isKeyPressed(GLFW_KEY_LEFT))
+	{
+		camera.transform.position.x -= 1.0f * delta_time;
+	}
+
+	if(isKeyPressed(GLFW_KEY_RIGHT))
+	{
+		camera.transform.position.x += 1.0f * delta_time;
+	}
 }
 
 static void update()
@@ -18,7 +36,7 @@ static void update()
 	sinTemp = sinf(temp);
 	cosTemp = cosf(temp);
 
-	shader_use(spriteShader);
+	renderer_use_shader(spriteShader);
 
 	sprite.transform.position.x = sinTemp;
 	sprite.transform.rotation = -sinTemp * 180;
@@ -36,11 +54,13 @@ void game_start()
 	window_setBackgroundImage("../res/images/clouds.png");
 	window_setFunctions(processInputs, update);
 
+	renderer_setup();
+
+	// camera = ortho_camera_create((v2){ 0.0f, 0.0f }, 0.0f);
+
 	spriteShader = shader_init("../res/shaders/sprite.vs", "../res/shaders/sprite.fs");
 	sprite = sprite_init("../res/images/Placeholder.png");
 	sprite2 = sprite_init("../res/images/workInProgress.png");
-
-	renderer_use_shader(spriteShader);
 
 	game_loop();
 	game_stop();

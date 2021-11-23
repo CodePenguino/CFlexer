@@ -3,12 +3,27 @@
 
 #include "m3.h"
 
-typedef struct
+typedef float mat4x4[4][4];
+
+typedef struct m4
 {
-	float data[4][4];
+	mat4x4 data;
 } m4;
 
-m4 m4_init_identity();
+#define m4_identity_const {{1.0f, 0.0f, 0.0f, 0.0f},\
+                           {0.0f, 1.0f, 0.0f, 0.0f},\
+                           {0.0f, 0.0f, 1.0f, 0.0f},\
+                           {0.0f, 0.0f, 0.0f, 1.0f}}
+
+#define m4_zero_const    {{0.0f, 0.0f, 0.0f, 0.0f},\
+                          {0.0f, 0.0f, 0.0f, 0.0f},\
+                          {0.0f, 0.0f, 0.0f, 0.0f},\
+                          {0.0f, 0.0f, 0.0f, 0.0f}}
+
+// #define m4_identity ((mat4x4)m4_identity_const)
+// #define m4_zero (m4_init_zero)
+
+m4 m4_set_identity();
 m4 m4_mul(m4 first, m4 second);
 m4 m4_translate(m4 transMat, float x, float y, float z);
 m4 m4_rotate(m4 transMat, float rot);

@@ -11,6 +11,8 @@ Sprite sprite_init(const char* texture_path)
 	self.transform.position.x = 0.0f;
 	self.transform.position.y = 0.0f;
 
+	self.transform.rotation = 0.0f;
+
 	self.transform.scale.x = 1.0f;
 	self.transform.scale.y = 1.0f;
 
@@ -57,7 +59,7 @@ Sprite sprite_init_background(const char* texture_path)
 	self.transform.scale.x = 1.0f;
 	self.transform.scale.y = 1.0f;
 
-	GLfloat sprite_verts[16] = {
+	const GLfloat sprite_verts[16] = {
 		1.0f,  1.0f,     1.0f, 1.0f,
 		1.0f, -1.0f,     1.0f, 0.0f,
 	   -1.0f, -1.0f,     0.0f, 0.0f,

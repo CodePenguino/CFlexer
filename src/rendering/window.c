@@ -8,9 +8,15 @@
 static void resize_callback(GLFWwindow* winHandle, int width, int height)
 {
 	glViewport(0, 0, width, height);
+	
 	window.width = width;
 	window.height = height;
 	window.aspectRatio = (float)width/height;
+	
+	if(height < 1)
+		window.aspectRatio = 0;
+	
+	renderer_update_camera_projection();
 }
 
 static void key_callback(GLFWwindow* winHandle, int key, int scancode, int action, int mods)
@@ -23,11 +29,11 @@ static void key_callback(GLFWwindow* winHandle, int key, int scancode, int actio
 	switch(action)
 	{
 		case GLFW_PRESS:
-			Input.keys[key] = true;
+			keys[key] = true;
 			break;
 
 		case GLFW_RELEASE:
-			Input.keys[key] = false;
+			keys[key] = false;
 			break;
 
 		default:
@@ -45,11 +51,11 @@ static void mouse_callback(GLFWwindow* winHandle, int button, int action, int mo
 	switch(action)
 	{
 		case GLFW_PRESS:
-			Input.mouseButtons[button] = true;
+			mouseButtons[button] = true;
 			break;
 
 		case GLFW_RELEASE:
-			Input.mouseButtons[button] = false;
+			mouseButtons[button] = false;
 			break;
 
 		default:
@@ -59,8 +65,6 @@ static void mouse_callback(GLFWwindow* winHandle, int button, int action, int mo
 
 void window_create(u32 width, u32 height, const char* title)
 {
-	time_init();
-
 	window.width  = width;
 	window.height = height;
 	window.aspectRatio = (float)width/height;
@@ -79,9 +83,10 @@ void window_create(u32 width, u32 height, const char* title)
 	glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
 
 	window.handle = glfwCreateWindow(window.width, window.height, title, NULL, NULL);
+	
 	if(!window.handle)
 	{
-		fprintf(stderr, "%s", "Error: GLFW failed to create window!\n");
+		fprintf(stderr, "%s", "Error: GLFW failed to create a window!\n");
 		glfwTerminate();
 		exit(1);
 	}
@@ -104,6 +109,8 @@ void window_create(u32 width, u32 height, const char* title)
 	}
 
 	background_shader = shader_init("../res/shaders/background.vs", "../res/shaders/background.fs");
+
+	time_init();
 }
 
 // Set window functions (important)
@@ -181,6 +188,7 @@ void window_setBackgroundColorRGB(float r, float g, float b)
 }
 
 // TODO: Make this render first without glDepthTest or something
+
 // Set the background image
 void window_setBackgroundImage(const char* filePath)
 {

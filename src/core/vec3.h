@@ -1,7 +1,6 @@
 #ifndef VEC3_H
 #define VEC3_H
 
-// Guess what this does!
 typedef struct
 {
 	float x, y, z;
