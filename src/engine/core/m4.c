@@ -1,6 +1,5 @@
 #include "m4.h"
 
-#include "../common/util.h"
 #include <math.h>
 #include "vec2.h"
 #include <stdio.h>
@@ -34,6 +33,24 @@ m4 m4_mul(m4 first, m4 second)
 			               first.data[i][1] * second.data[1][j] +
 			               first.data[i][2] * second.data[2][j] +
 			               first.data[i][3] * second.data[3][j];
+		}
+	}
+
+	return m;
+}
+
+m4 m4_mul_f32(m4 first, f32 second)
+{
+	m4 m;
+
+	for(u8 y = 0; y < 4; y++)
+	{
+		for(u8 x = 0; x < 4; x++)
+		{
+			m.data[y][x] = first.data[y][0] * second +
+						   first.data[y][1] * second +
+						   first.data[y][2] * second +
+						   first.data[y][3] * second;
 		}
 	}
 

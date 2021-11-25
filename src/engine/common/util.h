@@ -15,6 +15,9 @@ typedef int32_t  i32;
 typedef uint64_t u64;
 typedef int64_t  i64;
 
+typedef float f32;
+typedef double f64;
+
 char* read_file(char *filename);
 
 // Common math functions

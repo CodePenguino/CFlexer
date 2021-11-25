@@ -4,18 +4,20 @@
 #include "../common/util.h"
 #include "../core/math.h"
 
+// TODO: Make the ECS actually have entities and systems too
+
 typedef struct Transform2d
 {
-	u8 entity_id;
+	u32 entity_id;
 	
 	v2 position;
-	float rotation;
+	f32 rotation;
 	v2 scale;
 } Transform2d;
 
 typedef struct
 {
-	u8 entity_id;
+	u32 entity_id;
 
 	v3 position;
 	v3 scale;

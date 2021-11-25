@@ -50,7 +50,7 @@ v2 v2_add(v2 first, v2 second)
 	return vec;
 }
 
-v2 v2_addNum(v2 vec2, float number)
+v2 v2_add_f32(v2 vec2, f32 number)
 {
 	vec2.x = vec2.x + number;
 	vec2.y = vec2.y + number;
@@ -68,7 +68,7 @@ v2 v2_sub(v2 first, v2 second)
 	return vec;
 }
 
-v2 v2_subNum(v2 vec2, float number)
+v2 v2_sub_f32(v2 vec2, f32 number)
 {
 	vec2.x = vec2.x - number;
 	vec2.y = vec2.y - number;
@@ -86,7 +86,7 @@ v2 v2_mul(v2 first, v2 second)
 	return vec;
 }
 
-v2 v2_mulNum(v2 vec2, float number)
+v2 v2_mul_f32(v2 vec2, f32 number)
 {
 	vec2.x = vec2.x * number;
 	vec2.y = vec2.y * number;
@@ -104,7 +104,7 @@ v2 v2_div(v2 first, v2 second)
 	return vec;
 }
 
-v2 v2_divNum(v2 vec2, float number)
+v2 v2_div_f32(v2 vec2, f32 number)
 {
 	vec2.x = vec2.x / number;
 	vec2.y = vec2.y / number;

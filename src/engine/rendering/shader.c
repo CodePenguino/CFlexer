@@ -121,23 +121,17 @@ void shader_set_float_with_location(GLint ID, float value)
 
 void shader_set_v2(Shader shader, const char* name, v2 value)
 {
-	float vector2[2] = { value.x, value.y };
-
-	glUniform2fv(glGetUniformLocation(shader, name), 1, &vector2[0]);
+	glUniform2f(glGetUniformLocation(shader, name), value.x, value.y);
 }
 
 void shader_set_v3(Shader shader, const char* name, v3 value)
 {
-	float vector3[3] = { value.x, value.y, value.z };
-
-	glUniform3fv(glGetUniformLocation(shader, name), 1, &vector3[0]);
+	glUniform3f(glGetUniformLocation(shader, name), value.x, value.y, value.z);
 }
 
 void shader_set_v4(Shader shader, const char* name, v4 value)
-{
-	float vector4[4] = { value.x, value.y, value.z, value.w };
-
-	glUniform4fv(glGetUniformLocation(shader, name), 1, &vector4[0]);
+{	
+	glUniform4f(glGetUniformLocation(shader, name), value.x, value.y, value.z, value.w);
 }
 
 void shader_set_m3(Shader shader, const char* name, m3 mat)
@@ -145,12 +139,12 @@ void shader_set_m3(Shader shader, const char* name, m3 mat)
 	glUniformMatrix3fv(glGetUniformLocation(shader, name), 1, GL_FALSE, &mat.data[0][0]);
 }
 
-void shader_set_m4_wID(Shader shader, GLint ID, m4 mat)
-{
-	glUniformMatrix4fv(ID, 1, GL_TRUE, &mat.data[0][0]);
-}
-
 void shader_set_m4(Shader shader, const char* name, m4 mat)
 {
 	glUniformMatrix4fv(glGetUniformLocation(shader, name), 1, GL_TRUE, &mat.data[0][0]);
+}
+
+void shader_set_m4_wID(Shader shader, GLint ID, m4 mat)
+{
+	glUniformMatrix4fv(ID, 1, GL_TRUE, &mat.data[0][0]);
 }

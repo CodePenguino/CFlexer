@@ -116,19 +116,6 @@ void window_create(u32 width, u32 height, const char* title)
 // Set window functions (important)
 void window_setFunctions(void (*procInputs)(void), void (*upd)(void))
 {
-	// Error check. If we don't exit, we might get some "segmentation fault" errors on Linux
-	if(!procInputs)
-	{
-		fprintf(stderr, "%s", "Error: Process inputs function is invalid!\n");
-		exit(1);
-	}
-
-	if(!upd)
-	{
-		fprintf(stderr, "%s", "Error: Update function is invalid!\n");
-		exit(1);
-	}
-
 	processInputsCallback = procInputs;
 	updateCallback = upd;
 }
@@ -136,6 +123,19 @@ void window_setFunctions(void (*procInputs)(void), void (*upd)(void))
 // Run the main loop for the window
 void window_mainloop()
 {
+	// Error check. If we don't exit, we might get some "segmentation fault" errors on Linux
+	if(!processInputsCallback)
+	{
+		fprintf(stderr, "%s", "Error: Process inputs function is invalid!\n");
+		exit(1);
+	}
+
+	if(!updateCallback)
+	{
+		fprintf(stderr, "%s", "Error: Update function is invalid!\n");
+		exit(1);
+	}
+
 	while(!glfwWindowShouldClose(window.handle))
 	{
 		time_update();

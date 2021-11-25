@@ -1,29 +1,29 @@
 #include "game.h"
-#include "../core/time.h"
-#include "../core/math.h"
+#include "../engine/core/time.h"
+#include "../engine/core/math.h"
 
-float temp = 0.0f;
-float sinTemp;
-float cosTemp;
+f32 temp = 0;
+f32 sinTemp;
+f32 cosTemp;
 
 static void processInputs()
 {
-	if(isKeyPressed(GLFW_KEY_UP))
+	if(isKeyPressed(GLFW_KEY_UP) || isKeyPressed(GLFW_KEY_W))
 	{
 		camera.transform.position.y += 1.0f * delta_time;
 	}
 
-	if(isKeyPressed(GLFW_KEY_DOWN))
+	if(isKeyPressed(GLFW_KEY_DOWN) || isKeyPressed(GLFW_KEY_S))
 	{
 		camera.transform.position.y -= 1.0f * delta_time;
 	}
 
-	if(isKeyPressed(GLFW_KEY_LEFT))
+	if(isKeyPressed(GLFW_KEY_LEFT) || isKeyPressed(GLFW_KEY_A))
 	{
 		camera.transform.position.x -= 1.0f * delta_time;
 	}
 
-	if(isKeyPressed(GLFW_KEY_RIGHT))
+	if(isKeyPressed(GLFW_KEY_RIGHT) || isKeyPressed(GLFW_KEY_D))
 	{
 		camera.transform.position.x += 1.0f * delta_time;
 	}
@@ -31,21 +31,18 @@ static void processInputs()
 
 static void update()
 {
-	// Set up temporary variables
 	temp += delta_time;
 	sinTemp = sinf(temp);
 	cosTemp = cosf(temp);
 
 	renderer_use_shader(spriteShader);
 
-	sprite.transform.position.x = sinTemp;
-	sprite.transform.rotation = -sinTemp * 180;
+	spr1.transform.position = (v2) { sinTemp, cosTemp };
+	spr2.transform.rotation = sinTemp * 90.0f;
+	spr2.transform.scale = (v2) { cosTemp, cosTemp };
 
-	sprite2.transform.position.y = -cosTemp;
-	sprite2.transform.rotation = temp * 90;
-
-	draw_sprite(sprite);
-	draw_sprite(sprite2);
+	draw_sprite(spr1);
+	draw_sprite(spr2);
 }
 
 void game_start()
@@ -56,11 +53,9 @@ void game_start()
 
 	renderer_setup();
 
-	// camera = ortho_camera_create((v2){ 0.0f, 0.0f }, 0.0f);
-
 	spriteShader = shader_init("../res/shaders/sprite.vs", "../res/shaders/sprite.fs");
-	sprite = sprite_init("../res/images/Placeholder.png");
-	sprite2 = sprite_init("../res/images/workInProgress.png");
+	spr1 = sprite_init("../res/images/Placeholder.png");
+	spr2 = sprite_init("../res/images/workInProgress.png");
 
 	game_loop();
 	game_stop();
@@ -69,8 +64,8 @@ void game_start()
 void game_stop()
 {
 	shader_destroy(spriteShader);
-	sprite_destroy(sprite);
-	sprite_destroy(sprite2);
+	sprite_destroy(spr1);
+	sprite_destroy(spr2);
 	window_destroy();
 }
 

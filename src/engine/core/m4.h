@@ -2,6 +2,7 @@
 #define M4_H
 
 #include "m3.h"
+#include "../common/util.h"
 
 typedef float mat4x4[4][4];
 
@@ -25,6 +26,7 @@ typedef struct m4
 
 m4 m4_set_identity();
 m4 m4_mul(m4 first, m4 second);
+m4 m4_mul_f32(m4 first, f32 second);
 m4 m4_translate(m4 transMat, float x, float y, float z);
 m4 m4_rotate(m4 transMat, float rot);
 m4 m4_scale(m4 transMat, float x, float y, float z);
