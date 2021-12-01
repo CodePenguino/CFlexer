@@ -1,6 +1,4 @@
 TODO:
 
-1. Create an ECS system (probably just going to use Flecs for this)
-2. Add sound support
-3. 3D projection and models maybe?
-4. Make a ga... hey, I'm not spoiling it for you!
+1. ECS time!
+2. I'm not spoiling this part!

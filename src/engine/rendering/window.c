@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../core/time.h"
+#include "../core/keyboard.h"
 #include "renderer.h"
 
 // Callbackers!
@@ -63,7 +64,18 @@ static void mouse_callback(GLFWwindow* winHandle, int button, int action, int mo
 	}
 }
 
-void window_create(u32 width, u32 height, const char* title)
+static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
+{
+	v2 p = (v2) {xpos, ypos};
+
+	mouse_delta = v2_sub(p, mouse_position);
+	mouse_delta.x = clamp(mouse_delta.x, -100.0f, 100.0f);
+	mouse_delta.y = clamp(mouse_delta.y, -100.0f, 100.0f);
+
+	mouse_position = p;
+}
+
+void window_create(u32 width, u32 height, const char* title, bool isFullscreen)
 {
 	window.width  = width;
 	window.height = height;
@@ -82,7 +94,7 @@ void window_create(u32 width, u32 height, const char* title)
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
 
-	window.handle = glfwCreateWindow(window.width, window.height, title, NULL, NULL);
+	window.handle = glfwCreateWindow(window.width, window.height, title, isFullscreen ? glfwGetPrimaryMonitor() : NULL, NULL);
 	
 	if(!window.handle)
 	{
@@ -97,6 +109,7 @@ void window_create(u32 width, u32 height, const char* title)
 	glfwSetFramebufferSizeCallback(window.handle, resize_callback);
 	glfwSetKeyCallback(window.handle, key_callback);
 	glfwSetMouseButtonCallback(window.handle, mouse_callback);
+	glfwSetCursorPosCallback(window.handle, cursor_position_callback);
 
 	window_center(window.handle);
 
@@ -107,6 +120,9 @@ void window_create(u32 width, u32 height, const char* title)
 		glfwTerminate();
 		exit(1);
 	}
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	background_shader = shader_init("../res/shaders/background.vs", "../res/shaders/background.fs");
 
@@ -123,7 +139,7 @@ void window_setFunctions(void (*procInputs)(void), void (*upd)(void))
 // Run the main loop for the window
 void window_mainloop()
 {
-	// Error check. If we don't exit, we might get some "segmentation fault" errors on Linux
+	// Error check. If we don't exit, we might get some "segmentation fault" errors
 	if(!processInputsCallback)
 	{
 		fprintf(stderr, "%s", "Error: Process inputs function is invalid!\n");
@@ -148,11 +164,15 @@ void window_mainloop()
 			shader_set_float(background_shader, "windowAspectRatio", window.aspectRatio);
 			sprite_draw(window.backgroundImage);
 		}
-
+	
 		updateCallback();
+
 
 		glfwSwapBuffers(window.handle);
 		glfwPollEvents();
+		
+		// TODO: Figure out how to get the mouse delta reset
+		mouse_delta = (v2) { 0.0f, 0.0f };
 	}
 }
 

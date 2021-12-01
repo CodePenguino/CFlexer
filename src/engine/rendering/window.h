@@ -4,9 +4,9 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "../common/util.h"
-#include "../core/keyboard.h"
 #include "mesh.h"
 #include "shader.h"
+#include <stdbool.h>
 
 typedef struct
 {
@@ -23,7 +23,7 @@ static Shader background_shader;
 static GLint winAspectRatioLocation;
 
 void window_center();
-void window_create(u32 width, u32 height, const char* title);
+void window_create(u32 width, u32 height, const char* title, bool isFullscreen);
 void window_setFunctions(void (*procInputs)(void), void (*upd)(void));
 
 void window_mainloop();

@@ -1,13 +1,15 @@
 #include "renderer.h"
-#include "../ecs/transform.h"
+#include "../ecs/components/transform.h"
 #include "window.h"
 
+float SPRITE_RESOLUTION;
 Camera2d camera;
 
 // Setup for the camera
-void renderer_setup()
+void renderer_setup(float sprite_res)
 {
-	camera2d_init(&camera, (v2){ 0.0f, 0.0f }, 0.0f);
+	camera2d_init(&camera, (v2) { 0.0f, 0.0f }, 0.0f);
+	SPRITE_RESOLUTION = 1.0f/sprite_res;// 0.0028f;
 }
 
 // Update the projection matrix (done when the window is resized)

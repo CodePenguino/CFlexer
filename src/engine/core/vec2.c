@@ -3,13 +3,14 @@
 #include "../common/util.h"
 #include <math.h>
 #include <stdio.h>
+#include "../rendering/window.h"
 
-float v2_length(v2 vec2)
+f32 v2_length(v2 vec2)
 {
 	return sqrtf(vec2.x*vec2.x + vec2.y*vec2.y);
 }
 
-float v2_dot(v2 first, v2 second)
+f32 v2_dot(v2 first, v2 second)
 {
 	return first.x * second.x + first.y * second.y;
 }
@@ -110,4 +111,14 @@ v2 v2_div_f32(v2 vec2, f32 number)
 	vec2.y = vec2.y / number;
 
 	return vec2;
+}
+
+v2 v2_inverse(v2 vec2)
+{
+	v2 v;
+
+	v.x = -vec2.x;
+	v.y = -vec2.y;
+
+	return v;
 }

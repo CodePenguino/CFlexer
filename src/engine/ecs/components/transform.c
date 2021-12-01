@@ -1,5 +1,5 @@
 #include "transform.h"
-#include "../rendering/window.h"
+#include "../../rendering/window.h"
 
 m4 transform2d_get_mat(Transform2d* transform)
 {
@@ -16,16 +16,12 @@ m4 transform2d_get_mat(Transform2d* transform)
 
 m4 transform2d_get_ortho(Camera2d* camera, Transform2d* transform)
 {
-	// m4 modelMat = transform2d_get_mat(transform);
-	/*m4 projMat = m4_ortho(-window.aspectRatio, window.aspectRatio, -1.0f, 1.0f, -1.0f, 1.0f);
-	m4 viewMat = m4_set_identity();
-
-	m4 pos = m4_translate(viewMat, 0.0f, 0.0f, 0.0f);
-	m4 rot = m4_rotate(viewMat, 0.0f);
-
-	viewMat = m4_mul(rot, pos);*/
-
 	return m4_mul(camera2d_getViewProj(camera), transform2d_get_mat(transform));
+}
+
+float transform2d_rotate_to_point(v2 point)
+{
+	return radians_to_degrees(atan2f(point.y, point.x));
 }
 
 // -------------------------------------------------------

@@ -3,8 +3,8 @@
 
 #include "../engine/rendering/window.h"
 #include "../engine/rendering/renderer.h"
-#include "../engine/ecs/transform.h"
-#include "../engine/ecs/camera.h"
+#include "../engine/ecs/components/transform.h"
+#include "../engine/ecs/components/camera.h"
 
 void game_start();
 void game_stop();

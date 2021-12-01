@@ -1,5 +1,7 @@
 #include "mesh.h"
 #include "shader.h"
+#include <stdio.h>
+#include "renderer.h"
 
 Sprite sprite_init(const char* texture_path)
 {
@@ -13,8 +15,20 @@ Sprite sprite_init(const char* texture_path)
 
 	self.transform.rotation = 0.0f;
 
-	self.transform.scale.x = 1.0f;
-	self.transform.scale.y = 1.0f;
+	self.transform.scale.x = 1.0f; // 0.0028f * self.texture.width;
+	self.transform.scale.y = 1.0f; // 0.0028f * self.texture.height;
+
+	float scalerX = SPRITE_RESOLUTION * self.texture.width;
+	float scalerY = SPRITE_RESOLUTION * self.texture.height;
+
+	const GLfloat sprite_default_vertices[16] = {
+		 scalerX,  scalerY,    1.0f, 1.0f,
+		 scalerX, -scalerY,    1.0f, 0.0f,
+		-scalerX, -scalerY,    0.0f, 0.0f,
+		-scalerX,  scalerY,    0.0f, 1.0f
+	};
+
+	// printf("%d, %d\n", self.texture.width, self.texture.height);
 
 	// Generate the buffers and the vertex array
 	glGenVertexArrays(1, &self.VAO);
@@ -23,6 +37,7 @@ Sprite sprite_init(const char* texture_path)
 	
 	// Bind that VAO!
 	glBindVertexArray(self.VAO);
+
 
 	// Setup for VBO
 	glBindBuffer(GL_ARRAY_BUFFER, self.VBO);

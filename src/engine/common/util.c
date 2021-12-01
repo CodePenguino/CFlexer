@@ -48,13 +48,3 @@ char* read_file(char *filename)
 
 	return NULL;
 }
-
-/*void print_vec3_p(vec3* vector)
-{
-	printf("(%f, %f, %f)\n", *vector[0], *vector[1], *vector[2]);
-}
-
-void print_vec3(vec3 vector)
-{
-	printf("(%f, %f, %f)\n", vector[0], vector[1], vector[2]);
-}*/

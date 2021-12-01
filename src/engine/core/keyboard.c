@@ -2,6 +2,8 @@
 
 bool keys[MAX_KEYS];
 bool mouseButtons[MAX_BUTTONS];
+v2 mouse_position;
+v2 mouse_delta;
 
 bool isKeyPressed(int keyCode)
 {
