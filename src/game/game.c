@@ -48,7 +48,10 @@ static void update()
 
 	renderer_use_shader(spriteShader);
 
-	spr2.transform.rotation = transform2d_rotate_to_point(v2_screen_to_view_space(mouse_position, &camera));
+	spr1.transform.position = (v2) { cosTemp, sinTemp/2.5f };
+	spr1.transform.scale = (v2) { 0.5f, 0.5f };
+
+	spr2.transform.rotation = transform2d_rotate_to_point(spr1.transform.position);
 
 	draw_sprite(spr1);
 	draw_sprite(spr2);
