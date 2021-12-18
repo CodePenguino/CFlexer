@@ -57,11 +57,10 @@ CMakeFiles/CFlexer.dir/src/engine/core/vec2.c.o: \
  /home/codepingu/Programming/CFlexer/src/engine/core/../rendering/window.h \
  /home/codepingu/Programming/CFlexer/include/GLFW/glfw3.h \
  /home/codepingu/Programming/CFlexer/src/engine/core/../rendering/../common/util.h \
- /home/codepingu/Programming/CFlexer/src/engine/core/../rendering/mesh.h \
- /home/codepingu/Programming/CFlexer/src/engine/core/../rendering/texture.h \
- /home/codepingu/Programming/CFlexer/src/engine/core/../rendering/../ecs/components/transform.h \
- /home/codepingu/Programming/CFlexer/src/engine/core/../rendering/../ecs/components/components.h \
+ /home/codepingu/Programming/CFlexer/src/engine/core/../rendering/../ecs/components/sprite.h \
  /home/codepingu/Programming/CFlexer/src/engine/core/../rendering/../ecs/components/../../common/util.h \
+ /home/codepingu/Programming/CFlexer/src/engine/core/../rendering/../ecs/components/transform.h \
+ /home/codepingu/Programming/CFlexer/src/engine/core/../rendering/../ecs/components/comp_data.h \
  /home/codepingu/Programming/CFlexer/src/engine/core/../rendering/../ecs/components/../../core/math.h \
  /home/codepingu/Programming/CFlexer/src/engine/core/../rendering/../ecs/components/../../core/vec2.h \
  /home/codepingu/Programming/CFlexer/src/engine/core/../rendering/../ecs/components/../../core/vec3.h \

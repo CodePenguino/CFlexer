@@ -44,7 +44,7 @@ CMakeFiles/CFlexer.dir/src/engine/rendering/mesh.c.o: \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/texture.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdbool.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/transform.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/components.h \
+ /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/comp_data.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../common/util.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../core/math.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../core/vec2.h \
@@ -67,4 +67,4 @@ CMakeFiles/CFlexer.dir/src/engine/rendering/mesh.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/renderer.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/components.h
+ /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/comp_data.h

@@ -2,7 +2,7 @@ CMakeFiles/CFlexer.dir/src/engine/ecs/components/transform.c.o: \
  /home/codepingu/Programming/CFlexer/src/engine/ecs/components/transform.c \
  /usr/include/stdc-predef.h \
  /home/codepingu/Programming/CFlexer/src/engine/ecs/components/transform.h \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/components.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/comp_data.h \
  /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../common/util.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -55,8 +55,8 @@ CMakeFiles/CFlexer.dir/src/engine/ecs/components/transform.c.o: \
  /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/window.h \
  /home/codepingu/Programming/CFlexer/include/GLFW/glfw3.h \
  /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../common/util.h \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/mesh.h \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/texture.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../ecs/components/sprite.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../ecs/components/../../common/util.h \
  /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../ecs/components/transform.h \
  /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/shader.h \
  /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../core/math.h

@@ -1,7 +1,6 @@
-CMakeFiles/CFlexer.dir/src/engine/ecs/components/camera.c.o: \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/camera.c \
+CMakeFiles/CFlexer.dir/src/engine/ecs/components/comp_data.c.o: \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/comp_data.c \
  /usr/include/stdc-predef.h \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/camera.h \
  /home/codepingu/Programming/CFlexer/src/engine/ecs/components/comp_data.h \
  /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../common/util.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h /usr/include/stdint.h \
@@ -51,22 +50,5 @@ CMakeFiles/CFlexer.dir/src/engine/ecs/components/camera.c.o: \
  /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../core/vec3.h \
  /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../core/m2.h \
  /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../core/m3.h \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/window.h \
- /home/codepingu/Programming/CFlexer/include/GLFW/glfw3.h \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../common/util.h \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../ecs/components/sprite.h \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../ecs/components/../../common/util.h \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../ecs/components/transform.h \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../ecs/components/comp_data.h \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../ecs/components/camera.h \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/shader.h \
- /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../core/math.h \
- /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
- /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/sys_errlist.h
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/texture.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../common/util.h

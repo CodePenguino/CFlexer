@@ -1,7 +1,7 @@
-CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.o: \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/window.c \
+CMakeFiles/CFlexer.dir/src/engine/ecs/components/sprite.c.o: \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/sprite.c \
  /usr/include/stdc-predef.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/window.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/sprite.h \
  /home/codepingu/Programming/CFlexer/include/GL/glew.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h /usr/include/stdint.h \
@@ -19,8 +19,7 @@ CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h /usr/include/GL/glu.h \
  /usr/include/GL/gl.h \
- /home/codepingu/Programming/CFlexer/include/GLFW/glfw3.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../common/util.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../common/util.h \
  /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
@@ -42,22 +41,20 @@ CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/sprite.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../common/util.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/transform.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/comp_data.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../core/math.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../core/vec2.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../core/../common/util.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../core/m4.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/transform.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/comp_data.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../core/math.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../core/vec2.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../core/../common/util.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../core/m4.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdbool.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../core/vec4.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../core/vec3.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../core/m2.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../core/m3.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/camera.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/shader.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../core/math.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../core/vec4.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../core/vec3.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../core/m2.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../core/m3.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/camera.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/shader.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../core/math.h \
  /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
@@ -66,8 +63,14 @@ CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/stdlib.h \
- /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/renderer.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/shader.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../ecs/components/sprite.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/../ecs/components/comp_data.h \
+ /usr/include/assert.h \
+ /home/codepingu/Programming/CFlexer/src/engine/ecs/components/../../rendering/stb_image.h \
+ /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
@@ -82,10 +85,14 @@ CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.o: \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
- /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../core/time.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../core/../common/util.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../core/keyboard.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../core/math.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/renderer.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/comp_data.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/string.h \
+ /usr/include/strings.h /usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/emmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/xmmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/mmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/mm_malloc.h

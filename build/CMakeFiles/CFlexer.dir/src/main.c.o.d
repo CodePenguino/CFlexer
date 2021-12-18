@@ -43,16 +43,15 @@ CMakeFiles/CFlexer.dir/src/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/mesh.h \
- /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/texture.h \
- /usr/lib/gcc/x86_64-linux-gnu/9/include/stdbool.h \
- /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/transform.h \
- /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/components.h \
+ /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/sprite.h \
  /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/../../common/util.h \
+ /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/transform.h \
+ /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/comp_data.h \
  /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/../../core/math.h \
  /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/../../core/vec2.h \
  /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/../../core/../common/util.h \
  /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/../../core/m4.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/stdbool.h \
  /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/../../core/vec4.h \
  /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/../../core/vec3.h \
  /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/../../core/m2.h \
@@ -61,6 +60,10 @@ CMakeFiles/CFlexer.dir/src/main.c.o: \
  /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/shader.h \
  /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../core/math.h \
  /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/renderer.h \
- /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/components.h \
+ /home/codepingu/Programming/CFlexer/src/game/../engine/rendering/../ecs/components/comp_data.h \
+ /home/codepingu/Programming/CFlexer/src/game/../engine/ecs/components.h \
+ /home/codepingu/Programming/CFlexer/src/game/../engine/ecs/components/camera.h \
  /home/codepingu/Programming/CFlexer/src/game/../engine/ecs/components/transform.h \
- /home/codepingu/Programming/CFlexer/src/game/../engine/ecs/components/camera.h
+ /home/codepingu/Programming/CFlexer/src/game/../engine/ecs/components/sprite.h \
+ /home/codepingu/Programming/CFlexer/src/game/../engine/ecs/ecs.h \
+ /usr/include/inttypes.h

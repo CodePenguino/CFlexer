@@ -49,14 +49,14 @@ CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o: \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/../core/vec3.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/../core/m2.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/../core/m3.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/mesh.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../common/util.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/texture.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/transform.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/components.h \
+ /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/sprite.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../common/util.h \
+ /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/transform.h \
+ /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/comp_data.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../core/math.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/camera.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/components.h \
+ /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/comp_data.h \
+ /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/transform.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/window.h \
- /home/codepingu/Programming/CFlexer/include/GLFW/glfw3.h
+ /home/codepingu/Programming/CFlexer/include/GLFW/glfw3.h \
+ /home/codepingu/Programming/CFlexer/src/engine/rendering/../common/util.h

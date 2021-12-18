@@ -1,7 +1,7 @@
 #include "transform.h"
 #include "../../rendering/window.h"
 
-m4 transform2d_get_mat(Transform2d* transform)
+m4 transform2d_get_mat(Transform2dComponent* transform)
 {
 	m4 modelMat = m4_set_identity();
 
@@ -14,7 +14,7 @@ m4 transform2d_get_mat(Transform2d* transform)
 	return modelMat;
 }
 
-m4 transform2d_get_ortho(Camera2d* camera, Transform2d* transform)
+m4 transform2d_get_ortho(Camera2dComponent* camera, Transform2dComponent* transform)
 {
 	return m4_mul(camera2d_getViewProj(camera), transform2d_get_mat(transform));
 }
@@ -26,7 +26,7 @@ float transform2d_rotate_to_point(v2 point)
 
 // -------------------------------------------------------
 
-m4 transform3d_get_mat(Transform3d* transform)
+m4 transform3d_get_mat(Transform3dComponent* transform)
 {
 	// TODO: Just IMPLEMENT ME ALREADY!
 }

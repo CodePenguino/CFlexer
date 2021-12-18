@@ -129,6 +129,30 @@ CFlexer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/build
 .PHONY : CFlexer/fast
 
+src/engine/common/array_stack.o: src/engine/common/array_stack.c.o
+.PHONY : src/engine/common/array_stack.o
+
+# target to build an object file
+src/engine/common/array_stack.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/common/array_stack.c.o
+.PHONY : src/engine/common/array_stack.c.o
+
+src/engine/common/array_stack.i: src/engine/common/array_stack.c.i
+.PHONY : src/engine/common/array_stack.i
+
+# target to preprocess a source file
+src/engine/common/array_stack.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/common/array_stack.c.i
+.PHONY : src/engine/common/array_stack.c.i
+
+src/engine/common/array_stack.s: src/engine/common/array_stack.c.s
+.PHONY : src/engine/common/array_stack.s
+
+# target to generate assembly for a file
+src/engine/common/array_stack.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/common/array_stack.c.s
+.PHONY : src/engine/common/array_stack.c.s
+
 src/engine/common/util.o: src/engine/common/util.c.o
 .PHONY : src/engine/common/util.o
 
@@ -369,29 +393,29 @@ src/engine/ecs/components/camera.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/components/camera.c.s
 .PHONY : src/engine/ecs/components/camera.c.s
 
-src/engine/ecs/components/components.o: src/engine/ecs/components/components.c.o
-.PHONY : src/engine/ecs/components/components.o
+src/engine/ecs/components/sprite.o: src/engine/ecs/components/sprite.c.o
+.PHONY : src/engine/ecs/components/sprite.o
 
 # target to build an object file
-src/engine/ecs/components/components.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/components/components.c.o
-.PHONY : src/engine/ecs/components/components.c.o
+src/engine/ecs/components/sprite.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/components/sprite.c.o
+.PHONY : src/engine/ecs/components/sprite.c.o
 
-src/engine/ecs/components/components.i: src/engine/ecs/components/components.c.i
-.PHONY : src/engine/ecs/components/components.i
+src/engine/ecs/components/sprite.i: src/engine/ecs/components/sprite.c.i
+.PHONY : src/engine/ecs/components/sprite.i
 
 # target to preprocess a source file
-src/engine/ecs/components/components.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/components/components.c.i
-.PHONY : src/engine/ecs/components/components.c.i
+src/engine/ecs/components/sprite.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/components/sprite.c.i
+.PHONY : src/engine/ecs/components/sprite.c.i
 
-src/engine/ecs/components/components.s: src/engine/ecs/components/components.c.s
-.PHONY : src/engine/ecs/components/components.s
+src/engine/ecs/components/sprite.s: src/engine/ecs/components/sprite.c.s
+.PHONY : src/engine/ecs/components/sprite.s
 
 # target to generate assembly for a file
-src/engine/ecs/components/components.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/components/components.c.s
-.PHONY : src/engine/ecs/components/components.c.s
+src/engine/ecs/components/sprite.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/components/sprite.c.s
+.PHONY : src/engine/ecs/components/sprite.c.s
 
 src/engine/ecs/components/transform.o: src/engine/ecs/components/transform.c.o
 .PHONY : src/engine/ecs/components/transform.o
@@ -417,29 +441,29 @@ src/engine/ecs/components/transform.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/components/transform.c.s
 .PHONY : src/engine/ecs/components/transform.c.s
 
-src/engine/rendering/mesh.o: src/engine/rendering/mesh.c.o
-.PHONY : src/engine/rendering/mesh.o
+src/engine/ecs/ecs.o: src/engine/ecs/ecs.c.o
+.PHONY : src/engine/ecs/ecs.o
 
 # target to build an object file
-src/engine/rendering/mesh.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/rendering/mesh.c.o
-.PHONY : src/engine/rendering/mesh.c.o
+src/engine/ecs/ecs.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/ecs.c.o
+.PHONY : src/engine/ecs/ecs.c.o
 
-src/engine/rendering/mesh.i: src/engine/rendering/mesh.c.i
-.PHONY : src/engine/rendering/mesh.i
+src/engine/ecs/ecs.i: src/engine/ecs/ecs.c.i
+.PHONY : src/engine/ecs/ecs.i
 
 # target to preprocess a source file
-src/engine/rendering/mesh.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/rendering/mesh.c.i
-.PHONY : src/engine/rendering/mesh.c.i
+src/engine/ecs/ecs.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/ecs.c.i
+.PHONY : src/engine/ecs/ecs.c.i
 
-src/engine/rendering/mesh.s: src/engine/rendering/mesh.c.s
-.PHONY : src/engine/rendering/mesh.s
+src/engine/ecs/ecs.s: src/engine/ecs/ecs.c.s
+.PHONY : src/engine/ecs/ecs.s
 
 # target to generate assembly for a file
-src/engine/rendering/mesh.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/rendering/mesh.c.s
-.PHONY : src/engine/rendering/mesh.c.s
+src/engine/ecs/ecs.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/ecs.c.s
+.PHONY : src/engine/ecs/ecs.c.s
 
 src/engine/rendering/renderer.o: src/engine/rendering/renderer.c.o
 .PHONY : src/engine/rendering/renderer.o
@@ -594,6 +618,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... CFlexer"
+	@echo "... src/engine/common/array_stack.o"
+	@echo "... src/engine/common/array_stack.i"
+	@echo "... src/engine/common/array_stack.s"
 	@echo "... src/engine/common/util.o"
 	@echo "... src/engine/common/util.i"
 	@echo "... src/engine/common/util.s"
@@ -624,15 +651,15 @@ help:
 	@echo "... src/engine/ecs/components/camera.o"
 	@echo "... src/engine/ecs/components/camera.i"
 	@echo "... src/engine/ecs/components/camera.s"
-	@echo "... src/engine/ecs/components/components.o"
-	@echo "... src/engine/ecs/components/components.i"
-	@echo "... src/engine/ecs/components/components.s"
+	@echo "... src/engine/ecs/components/sprite.o"
+	@echo "... src/engine/ecs/components/sprite.i"
+	@echo "... src/engine/ecs/components/sprite.s"
 	@echo "... src/engine/ecs/components/transform.o"
 	@echo "... src/engine/ecs/components/transform.i"
 	@echo "... src/engine/ecs/components/transform.s"
-	@echo "... src/engine/rendering/mesh.o"
-	@echo "... src/engine/rendering/mesh.i"
-	@echo "... src/engine/rendering/mesh.s"
+	@echo "... src/engine/ecs/ecs.o"
+	@echo "... src/engine/ecs/ecs.i"
+	@echo "... src/engine/ecs/ecs.s"
 	@echo "... src/engine/rendering/renderer.o"
 	@echo "... src/engine/rendering/renderer.i"
 	@echo "... src/engine/rendering/renderer.s"

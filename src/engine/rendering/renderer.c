@@ -3,13 +3,13 @@
 #include "window.h"
 
 float SPRITE_RESOLUTION;
-Camera2d camera;
+Camera2dComponent camera;
 
 // Setup for the camera
 void renderer_setup(float sprite_res)
 {
 	camera2d_init(&camera, (v2) { 0.0f, 0.0f }, 0.0f);
-	SPRITE_RESOLUTION = 1.0f/sprite_res;// 0.0028f;
+	SPRITE_RESOLUTION = 1.0f/sprite_res;
 }
 
 // Update the projection matrix (done when the window is resized)
@@ -26,10 +26,17 @@ void renderer_use_shader(Shader shader)
 }
 
 // Draw a orthographically projected sprite
-void draw_sprite(Sprite sprite)
+void draw_sprite(SpriteComponent* sprite, Transform2dComponent* transform)
 {
-	shader_set_m4(render_shader, "transform", transform2d_get_ortho(&camera, &sprite.transform));
+	shader_set_m4(render_shader, "transform", transform2d_get_ortho(&camera, transform));
 
 	// The name of this function is definitely not confusing...
-	sprite_draw(sprite);
+	// sprite_draw(sprite);
+
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, sprite->texture_id);
+
+	glBindVertexArray(sprite->VAO);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	glBindVertexArray(0);
 }

@@ -84,9 +84,9 @@ m3 m3_scale(m3 transMat, v2 v)
 {
 	m3 m;
 
-	m.data[0][0] = v.x;	m.data[0][1] = 0;	m.data[0][2] = 0;
-	m.data[1][0] = 0;	m.data[1][1] = v.y;	m.data[1][2] = 0;
-	m.data[2][0] = 0;	m.data[2][1] = 0;	m.data[2][2] = 1;
+	m.data[0][0] = v.x;		m.data[0][1] = 0;		m.data[0][2] = 0;
+	m.data[1][0] = 0;		m.data[1][1] = v.y;		m.data[1][2] = 0;
+	m.data[2][0] = 0;		m.data[2][1] = 0;		m.data[2][2] = 1;
 
 	return m3_mul(transMat, m);
 

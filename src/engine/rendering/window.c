@@ -154,6 +154,8 @@ void window_mainloop()
 
 	while(!glfwWindowShouldClose(window.handle))
 	{
+		glfwPollEvents();
+		
 		time_update();
 		processInputsCallback();
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -162,16 +164,14 @@ void window_mainloop()
 		{
 			shader_use(background_shader);
 			shader_set_float(background_shader, "windowAspectRatio", window.aspectRatio);
-			sprite_draw(window.backgroundImage);
+			sprite_draw(&window.backgroundImage);
 		}
 	
 		updateCallback();
 
-
 		glfwSwapBuffers(window.handle);
-		glfwPollEvents();
 		
-		// TODO: Figure out how to get the mouse delta reset
+		// TODO: Figure out how to properly get the mouse delta reset (this works for now though)
 		mouse_delta = (v2) { 0.0f, 0.0f };
 	}
 }

@@ -75,12 +75,11 @@ CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/renderer.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/mesh.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/texture.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/transform.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/components.h \
+ /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/sprite.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../common/util.h \
+ /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/transform.h \
+ /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/comp_data.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/../../core/math.h \
  /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/camera.h \
- /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/components.h \
+ /home/codepingu/Programming/CFlexer/src/engine/rendering/../ecs/components/comp_data.h \
  /usr/include/assert.h /usr/include/string.h /usr/include/strings.h

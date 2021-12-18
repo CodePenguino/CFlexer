@@ -4,7 +4,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "../common/util.h"
-#include "mesh.h"
+#include "../ecs/components/sprite.h"
 #include "shader.h"
 #include <stdbool.h>
 
@@ -15,7 +15,7 @@ typedef struct
 	float aspectRatio;
 
 	bool has_background_image;
-	Sprite backgroundImage;
+	SpriteComponent backgroundImage;
 
 } Window; Window window;
 

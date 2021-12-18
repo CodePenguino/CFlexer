@@ -1,5 +1,5 @@
 #include "texture.h"
-#include <stdio.h>
+/*#include <stdio.h>
 #include <assert.h>
 
 #define STB_IMAGE_IMPLEMENTATION
@@ -11,7 +11,7 @@ void texture_init(Texture* self, const char* fileName)
 	if(fileName == NULL) { fileName = "../res/Flexer_MISSING_TEXTURE.png"; }
 
 	// OpenGL, why are you like this?!
-	stbi_set_flip_vertically_on_load(true);
+	// stbi_set_flip_vertically_on_load(true);
 
 	int width, height, nrChannels;
 	unsigned char* data = stbi_load(fileName, &width, &height, &nrChannels, 0);
@@ -49,3 +49,4 @@ void texture_destroy(Texture* self)
 {
 	glDeleteTextures(1, &self->id);
 }
+*/

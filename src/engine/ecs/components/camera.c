@@ -2,7 +2,7 @@
 #include "../../rendering/window.h"
 #include <stdio.h>
 
-void camera2d_init(Camera2d* camera, v2 pos, float rot)
+void camera2d_init(Camera2dComponent* camera, v2 pos, float rot)
 {
 	camera->transform.position = pos;
 	camera->transform.rotation = rot;
@@ -13,7 +13,7 @@ void camera2d_init(Camera2d* camera, v2 pos, float rot)
 	camera->viewMat = m4_set_identity();
 }
 
-void camera2d_setViewMat(Camera2d* camera)
+void camera2d_setViewMat(Camera2dComponent* camera)
 {
 	camera->viewMat = m4_set_identity();
 
@@ -23,7 +23,7 @@ void camera2d_setViewMat(Camera2d* camera)
 	camera->viewMat = m4_mul(rot, pos);
 }
 
-m4 camera2d_getViewProj(Camera2d* camera)
+m4 camera2d_getViewProj(Camera2dComponent* camera)
 {
 	camera2d_setViewMat(camera);
 
@@ -31,7 +31,7 @@ m4 camera2d_getViewProj(Camera2d* camera)
 }
 
 // Turn a screen space coordinate to a view space coordinate
-v2 v2_screen_to_view_space(v2 vector, Camera2d* camera)
+v2 v2_screen_to_view_space(v2 vector, Camera2dComponent* camera)
 {
 	// Normalized Device Space
 	float x = 2.0f * vector.x / window.width  - 1;
@@ -39,7 +39,7 @@ v2 v2_screen_to_view_space(v2 vector, Camera2d* camera)
 
 	// No multiplication function for v2s, so v4s it is!
 	v4 screenPos = (v4) { x, y, -1.0f, 1.0f };
-	//												wtf is this
+	// wtf is this
 	v4 viewPos = v4_mul_m4(screenPos, m4_inverse(m4_mul(camera->viewMat, camera->projMat)));
 
 	// Multiply the final view position with the aspect ratio, and add the camera's position to that
