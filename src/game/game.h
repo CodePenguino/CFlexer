@@ -6,22 +6,15 @@
 #include "../engine/ecs/components.h"
 #include "../engine/ecs/ecs.h"
 
-#define MAX_ENTITIES 32
+#define MAX_ENTITIES 2
 
 void game_start();
 void game_stop();
 void game_loop();
 
 Shader spriteShader;
-
-// Sprite spr1;
-// Sprite spr2;
-
 Entity ent1;
-// Entity ent2;
-// , spr2_trans;
+Entity ent2;
+// Entity* entities;
 
-// Entity ent1;
-// Entity ent2;
-
-#endif
+#endif // GAME_H

@@ -74,20 +74,22 @@ void ecs_init(uint32_t n, ...)
 	state.entity_store.flag_array = malloc(INITIAL_CAPACITY * sizeof(uint32_t));
 }
 
+/** NOTE: This function got redone recently, this is probably
+ * going to blow up */
+
 Entity ecs_create()
 {
 	Entity entity;
-	uint32_t id;
-	
+
 	if (state.entity_pool->count > 0)
 	{
-		id = *(uint32_t*)as_pop(state.entity_pool);
+		entity = *(uint32_t*)as_pop(state.entity_pool);
 	}
 	else
 	{
-		id = state.entity_store.count++;
+		entity = state.entity_store.count++;
 	
-		if (state.entity_store.cap == id)
+		if (state.entity_store.cap == entity)
 		{
 			uint32_t *new_flag_array = realloc(state.entity_store.flag_array, state.entity_store.cap * 2 * sizeof(uint32_t));
 			uint32_t *new_mask_array = realloc(state.entity_store.mask_array, state.entity_store.cap * 2 * sizeof(uint32_t));
@@ -112,9 +114,11 @@ Entity ecs_create()
 		}
 	}
 
-	state.entity_store.mask_array[id] = 0;
-	state.entity_store.flag_array[id] = ENTITY_FLAG_ALIVE;
-	entity.id = id;
+	printf("Entity count: %d\n", state.entity_store.count);
+
+	state.entity_store.mask_array[entity] = 0;
+	state.entity_store.flag_array[entity] = ENTITY_FLAG_ALIVE;
+
 	return entity;
 }
 
@@ -129,7 +133,7 @@ void ecs_add(uint32_t entity_id, uint32_t component_id, void *data)
 	void *ptr = ecs_get(entity_id, component_id);
 	state.entity_store.mask_array[entity_id] |= (1 << component_id);
 	memcpy(ptr, data, size);
-} 
+}
 
 void ecs_remove(uint32_t entity_id, uint32_t component_id)
 {

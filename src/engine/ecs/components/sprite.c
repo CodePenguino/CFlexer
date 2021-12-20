@@ -7,7 +7,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "../../rendering/stb_image.h"
 
-SpriteComponent sprite_init(const char* texture_path)
+SpriteComponent spriteComponent_init(const char* texture_path)
 {
 	SpriteComponent self;
 
@@ -20,7 +20,12 @@ SpriteComponent sprite_init(const char* texture_path)
 	int width, height, nrChannels;
 	unsigned char* data = stbi_load(texture_path, &width, &height, &nrChannels, 0);
 
-	if(!data) { fprintf(stderr, "Error: Failed to load image: %s\n", texture_path); }
+	if(!data)
+	{
+		fprintf(stderr, "Error: Failed to load image: %s\n", texture_path);
+		texture_path = "../res/Flexer_MISSING_TEXTURE.png";
+		data = stbi_load("../res/Flexer_MISSING_TEXTURE.png", &width, &height, &nrChannels, 0);
+	}
 
 	// self.texture_width = width;
 	// self.texture_height = height;
@@ -28,14 +33,18 @@ SpriteComponent sprite_init(const char* texture_path)
 	glGenTextures(1, &self.texture_id);
 	glBindTexture(GL_TEXTURE_2D, self.texture_id);
 
+	// The image will wrap around repeating
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
+	// No filtering
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
+	// Tells OpenGL this is a 2d image, and also figures out whether this is in RGB or RGBA format
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, nrChannels == 3 ? GL_RGB : GL_RGBA, GL_UNSIGNED_BYTE, data);
 
+	// Frees the image data
 	stbi_image_free(data);
 	// --------------------------------------------------------------
 
@@ -47,6 +56,7 @@ SpriteComponent sprite_init(const char* texture_path)
 	// self.transform.scale.x = 1.0f;
 	// self.transform.scale.y = 1.0f;
 
+	// Figures out how big the sprite should show up relative to its size
 	float scalerX = SPRITE_RESOLUTION * width;
 	float scalerY = SPRITE_RESOLUTION * height;
 
@@ -61,8 +71,8 @@ SpriteComponent sprite_init(const char* texture_path)
 	glGenVertexArrays(1, &self.VAO);
 	glGenBuffers(1, &self.VBO);
 	glGenBuffers(1, &self.EBO);
-	
-	// Bind that VAO!
+
+	// Bind dat VAO!
 	glBindVertexArray(self.VAO);
 
 	// Setup for VBO
@@ -88,7 +98,7 @@ SpriteComponent sprite_init(const char* texture_path)
 	return self;
 }
 
-SpriteComponent sprite_init_background(const char* texture_path)
+SpriteComponent spriteComponent_init_background(const char* texture_path)
 {
 	SpriteComponent self;
 
@@ -165,7 +175,7 @@ SpriteComponent sprite_init_background(const char* texture_path)
 	return self;
 }
 
-void sprite_draw(SpriteComponent* self)
+void spriteComponent_draw(SpriteComponent* self)
 {
 	// assert(unit >= 0 && unit <= 31);
 
@@ -177,16 +187,20 @@ void sprite_draw(SpriteComponent* self)
 	glBindVertexArray(0);
 }
 
-void sprite_destroy(SpriteComponent self)
+// Destroy a normal sprite
+/*void sprite_destroy(SpriteComponent self)
 {
 	glDeleteTextures(1, &self.texture_id);
 
 	glDeleteVertexArrays(1, &self.VAO);
 	glDeleteBuffers(1, &self.VBO);
 	glDeleteBuffers(1, &self.EBO);
-}
+}*/
 
-void ecs_sprite_destroy(SpriteComponent* self)
+/* NOTE: My microphone sucks pretty bad */
+
+// Destroy a sprite with the ECS
+void spriteComponent_destroy(SpriteComponent* self)
 {
 	glDeleteTextures(1, &self->texture_id);
 

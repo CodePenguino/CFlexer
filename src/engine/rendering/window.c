@@ -164,7 +164,7 @@ void window_mainloop()
 		{
 			shader_use(background_shader);
 			shader_set_float(background_shader, "windowAspectRatio", window.aspectRatio);
-			sprite_draw(&window.backgroundImage);
+			spriteComponent_draw(&window.backgroundImage);
 		}
 	
 		updateCallback();
@@ -188,7 +188,7 @@ void window_destroy()
 	shader_destroy(background_shader);
 	if(window.has_background_image == true)
 	{
-		sprite_destroy(window.backgroundImage);
+		spriteComponent_destroy(&window.backgroundImage);
 	}
 
 	glfwDestroyWindow(window.handle);
@@ -213,7 +213,7 @@ void window_setBackgroundColorRGB(float r, float g, float b)
 void window_setBackgroundImage(const char* filePath)
 {
 	window.has_background_image = true;
-	window.backgroundImage = sprite_init_background(filePath);
+	window.backgroundImage = spriteComponent_init_background(filePath);
 }
 
 // The code for this is copied from this github link: https://github.com/glfw/glfw/issues/310

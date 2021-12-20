@@ -265,10 +265,24 @@ CMakeFiles/CFlexer.dir/src/engine/ecs/ecs.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/CFlexer.dir/src/engine/ecs/ecs.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/codepingu/Programming/CFlexer/src/engine/ecs/ecs.c -o CMakeFiles/CFlexer.dir/src/engine/ecs/ecs.c.s
 
+CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o: CMakeFiles/CFlexer.dir/flags.make
+CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o: ../src/engine/ecs/types/sprite.c
+CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o: CMakeFiles/CFlexer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o -MF CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o.d -o CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o -c /home/codepingu/Programming/CFlexer/src/engine/ecs/types/sprite.c
+
+CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/codepingu/Programming/CFlexer/src/engine/ecs/types/sprite.c > CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.i
+
+CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/codepingu/Programming/CFlexer/src/engine/ecs/types/sprite.c -o CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.s
+
 CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o: CMakeFiles/CFlexer.dir/flags.make
 CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o: ../src/engine/rendering/renderer.c
 CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o: CMakeFiles/CFlexer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o -MF CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o.d -o CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o -c /home/codepingu/Programming/CFlexer/src/engine/rendering/renderer.c
 
 CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.i: cmake_force
@@ -282,7 +296,7 @@ CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.s: cmake_force
 CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o: CMakeFiles/CFlexer.dir/flags.make
 CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o: ../src/engine/rendering/shader.c
 CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o: CMakeFiles/CFlexer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o -MF CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o.d -o CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o -c /home/codepingu/Programming/CFlexer/src/engine/rendering/shader.c
 
 CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.i: cmake_force
@@ -296,7 +310,7 @@ CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.s: cmake_force
 CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.o: CMakeFiles/CFlexer.dir/flags.make
 CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.o: ../src/engine/rendering/texture.c
 CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.o: CMakeFiles/CFlexer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.o -MF CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.o.d -o CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.o -c /home/codepingu/Programming/CFlexer/src/engine/rendering/texture.c
 
 CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.i: cmake_force
@@ -310,7 +324,7 @@ CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.s: cmake_force
 CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.o: CMakeFiles/CFlexer.dir/flags.make
 CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.o: ../src/engine/rendering/window.c
 CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.o: CMakeFiles/CFlexer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.o -MF CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.o.d -o CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.o -c /home/codepingu/Programming/CFlexer/src/engine/rendering/window.c
 
 CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.i: cmake_force
@@ -324,7 +338,7 @@ CMakeFiles/CFlexer.dir/src/engine/rendering/window.c.s: cmake_force
 CMakeFiles/CFlexer.dir/src/game/game.c.o: CMakeFiles/CFlexer.dir/flags.make
 CMakeFiles/CFlexer.dir/src/game/game.c.o: ../src/game/game.c
 CMakeFiles/CFlexer.dir/src/game/game.c.o: CMakeFiles/CFlexer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/CFlexer.dir/src/game/game.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/CFlexer.dir/src/game/game.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/CFlexer.dir/src/game/game.c.o -MF CMakeFiles/CFlexer.dir/src/game/game.c.o.d -o CMakeFiles/CFlexer.dir/src/game/game.c.o -c /home/codepingu/Programming/CFlexer/src/game/game.c
 
 CMakeFiles/CFlexer.dir/src/game/game.c.i: cmake_force
@@ -338,7 +352,7 @@ CMakeFiles/CFlexer.dir/src/game/game.c.s: cmake_force
 CMakeFiles/CFlexer.dir/src/main.c.o: CMakeFiles/CFlexer.dir/flags.make
 CMakeFiles/CFlexer.dir/src/main.c.o: ../src/main.c
 CMakeFiles/CFlexer.dir/src/main.c.o: CMakeFiles/CFlexer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/CFlexer.dir/src/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/CFlexer.dir/src/main.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/CFlexer.dir/src/main.c.o -MF CMakeFiles/CFlexer.dir/src/main.c.o.d -o CMakeFiles/CFlexer.dir/src/main.c.o -c /home/codepingu/Programming/CFlexer/src/main.c
 
 CMakeFiles/CFlexer.dir/src/main.c.i: cmake_force
@@ -365,6 +379,7 @@ CFlexer_OBJECTS = \
 "CMakeFiles/CFlexer.dir/src/engine/ecs/components/sprite.c.o" \
 "CMakeFiles/CFlexer.dir/src/engine/ecs/components/transform.c.o" \
 "CMakeFiles/CFlexer.dir/src/engine/ecs/ecs.c.o" \
+"CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o" \
 "CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o" \
 "CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o" \
 "CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.o" \
@@ -389,6 +404,7 @@ CFlexer: CMakeFiles/CFlexer.dir/src/engine/ecs/components/camera.c.o
 CFlexer: CMakeFiles/CFlexer.dir/src/engine/ecs/components/sprite.c.o
 CFlexer: CMakeFiles/CFlexer.dir/src/engine/ecs/components/transform.c.o
 CFlexer: CMakeFiles/CFlexer.dir/src/engine/ecs/ecs.c.o
+CFlexer: CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o
 CFlexer: CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o
 CFlexer: CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o
 CFlexer: CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.o
@@ -406,7 +422,7 @@ CFlexer: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 CFlexer: /usr/lib/x86_64-linux-gnu/libGLX.so
 CFlexer: /usr/lib/x86_64-linux-gnu/libGLU.so
 CFlexer: CMakeFiles/CFlexer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking C executable CFlexer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/codepingu/Programming/CFlexer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking C executable CFlexer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CFlexer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

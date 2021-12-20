@@ -22,6 +22,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/codepingu/Programming/CFlexer/src/engine/ecs/components/sprite.c" "CMakeFiles/CFlexer.dir/src/engine/ecs/components/sprite.c.o" "gcc" "CMakeFiles/CFlexer.dir/src/engine/ecs/components/sprite.c.o.d"
   "/home/codepingu/Programming/CFlexer/src/engine/ecs/components/transform.c" "CMakeFiles/CFlexer.dir/src/engine/ecs/components/transform.c.o" "gcc" "CMakeFiles/CFlexer.dir/src/engine/ecs/components/transform.c.o.d"
   "/home/codepingu/Programming/CFlexer/src/engine/ecs/ecs.c" "CMakeFiles/CFlexer.dir/src/engine/ecs/ecs.c.o" "gcc" "CMakeFiles/CFlexer.dir/src/engine/ecs/ecs.c.o.d"
+  "/home/codepingu/Programming/CFlexer/src/engine/ecs/types/sprite.c" "CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o" "gcc" "CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o.d"
   "/home/codepingu/Programming/CFlexer/src/engine/rendering/renderer.c" "CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o" "gcc" "CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o.d"
   "/home/codepingu/Programming/CFlexer/src/engine/rendering/shader.c" "CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o" "gcc" "CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o.d"
   "/home/codepingu/Programming/CFlexer/src/engine/rendering/texture.c" "CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.o" "gcc" "CMakeFiles/CFlexer.dir/src/engine/rendering/texture.c.o.d"

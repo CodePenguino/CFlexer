@@ -1,4 +1,4 @@
 TODO:
 
-1. ECS time!
-2. I'm not spoiling this part!
+CURRENT:
+	- Finish creating the "Sprite" type

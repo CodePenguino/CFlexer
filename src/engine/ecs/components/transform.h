@@ -4,6 +4,8 @@
 #include "comp_data.h"
 #include "camera.h"
 
+Transform2dComponent transform2d_init();
+
 m4 transform2d_get_mat(Transform2dComponent* transform);
 m4 transform2d_get_ortho(Camera2dComponent* camera, Transform2dComponent* transform);
 

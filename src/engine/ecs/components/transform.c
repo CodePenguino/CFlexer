@@ -1,6 +1,19 @@
 #include "transform.h"
 #include "../../rendering/window.h"
 
+Transform2dComponent transform2d_init()
+{
+	Transform2dComponent trans;
+
+	trans.position.x = 0.0f;
+	trans.position.y = 0.0f;
+	trans.rotation = 0.0f;
+	trans.scale.x = 1.0f;
+	trans.scale.y = 1.0f;
+
+	return trans;
+}
+
 m4 transform2d_get_mat(Transform2dComponent* transform)
 {
 	m4 modelMat = m4_set_identity();

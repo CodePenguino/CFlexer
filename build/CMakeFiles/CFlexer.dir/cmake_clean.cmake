@@ -29,6 +29,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/CFlexer.dir/src/engine/ecs/components/transform.c.o.d"
   "CMakeFiles/CFlexer.dir/src/engine/ecs/ecs.c.o"
   "CMakeFiles/CFlexer.dir/src/engine/ecs/ecs.c.o.d"
+  "CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o"
+  "CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o.d"
   "CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o"
   "CMakeFiles/CFlexer.dir/src/engine/rendering/renderer.c.o.d"
   "CMakeFiles/CFlexer.dir/src/engine/rendering/shader.c.o"

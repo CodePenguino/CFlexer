@@ -81,6 +81,8 @@ CMakeFiles/CFlexer.dir/src/game/game.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /home/codepingu/Programming/CFlexer/src/game/../engine/core/math.h \
+ /home/codepingu/Programming/CFlexer/src/game/../engine/ecs/types/sprite.h \
+ /home/codepingu/Programming/CFlexer/src/game/../engine/ecs/types/../../ecs/ecs.h \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/endian.h \

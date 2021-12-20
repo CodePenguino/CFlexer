@@ -6,9 +6,15 @@
 
 #define ENTITY_FLAG_ALIVE 1
 
-typedef struct {
-	uint32_t id;
-} Entity;
+// Macros for different component ids
+#define TRANSFORMCOMPONENT_ID 0
+#define SPRITECOMPONENT_ID 1
+
+// typedef struct {
+// 	uint32_t id;
+// } Entity;
+
+typedef uint32_t Entity;
 
 typedef struct {
 	uint32_t count;
@@ -16,9 +22,9 @@ typedef struct {
 	uint32_t *list;
 } QueryResult;
 
-/** NOTE: The following code is from Falconerd, which wrote this in
+/* NOTE: The following code is from Falconerd, which wrote this in
  * the following link: https://gitlab.com/Falconerd/ember-ecs.
- * He actually knows what he's doing when programming.
+ * He actually knows what he's doing.
  */
 
 /**

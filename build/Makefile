@@ -465,6 +465,30 @@ src/engine/ecs/ecs.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/ecs.c.s
 .PHONY : src/engine/ecs/ecs.c.s
 
+src/engine/ecs/types/sprite.o: src/engine/ecs/types/sprite.c.o
+.PHONY : src/engine/ecs/types/sprite.o
+
+# target to build an object file
+src/engine/ecs/types/sprite.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.o
+.PHONY : src/engine/ecs/types/sprite.c.o
+
+src/engine/ecs/types/sprite.i: src/engine/ecs/types/sprite.c.i
+.PHONY : src/engine/ecs/types/sprite.i
+
+# target to preprocess a source file
+src/engine/ecs/types/sprite.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.i
+.PHONY : src/engine/ecs/types/sprite.c.i
+
+src/engine/ecs/types/sprite.s: src/engine/ecs/types/sprite.c.s
+.PHONY : src/engine/ecs/types/sprite.s
+
+# target to generate assembly for a file
+src/engine/ecs/types/sprite.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CFlexer.dir/build.make CMakeFiles/CFlexer.dir/src/engine/ecs/types/sprite.c.s
+.PHONY : src/engine/ecs/types/sprite.c.s
+
 src/engine/rendering/renderer.o: src/engine/rendering/renderer.c.o
 .PHONY : src/engine/rendering/renderer.o
 
@@ -660,6 +684,9 @@ help:
 	@echo "... src/engine/ecs/ecs.o"
 	@echo "... src/engine/ecs/ecs.i"
 	@echo "... src/engine/ecs/ecs.s"
+	@echo "... src/engine/ecs/types/sprite.o"
+	@echo "... src/engine/ecs/types/sprite.i"
+	@echo "... src/engine/ecs/types/sprite.s"
 	@echo "... src/engine/rendering/renderer.o"
 	@echo "... src/engine/rendering/renderer.i"
 	@echo "... src/engine/rendering/renderer.s"
