@@ -1,35 +1,33 @@
 #include "sprite.h"
-#include "../components/comp_data.h"
 #include "../components.h"
 #include "../../rendering/renderer.h"
-// #include <stdio.h>
 
-Entity sprite_init(Entity ent, const char* image_path)
+SpriteEntity sprite_init(SpriteEntity ent, const char* image_path)
 {
-	ent = ecs_create();
-
-	Transform2dComponent trans = transform2d_init();
-	SpriteComponent      spr   = spriteComponent_init(image_path);
-
-	ecs_add(ent, 0, &trans);
-	ecs_add(ent, 1, &spr);
-
+	ent.entity = ecs_create();
+    
+    ent.transform = transform2d_init();
+    ent.sprite    = spriteComponent_init(image_path);
+    
+	ecs_add(ent.entity.id, 0, &ent.transform);
+	ecs_add(ent.entity.id, 1, &ent.sprite);
+    
 	return ent;
 }
 
-void sprite_destroy(Entity ent)
+void sprite_destroy(SpriteEntity* ent)
 {
-	spriteComponent_destroy((SpriteComponent*)ecs_get(ent, 1));
-	ecs_kill(ent);
+	spriteComponent_destroy((SpriteComponent*)ecs_get(ent->entity.id, 1));
+	ecs_kill(ent->entity.id);
 }
 
-void sprite_draw(Entity ent)
+void sprite_draw(SpriteEntity ent)
 {
-	// Transform2dComponent* trans = (Transform2dComponent*)ecs_get(ent, 0);
-	// SpriteComponent*      spr = (SpriteComponent*)ecs_get(ent, 1);
+    // NOTE: The name of this function is not confusing at all ;)
+	draw_sprite(&ent.sprite, &ent.transform);
+}
 
-	Transform2dComponent* trans = (Transform2dComponent*)ecs_get(ent, 0);
-	SpriteComponent*      spr   = (SpriteComponent*)ecs_get(ent, 1);
-
-	draw_sprite(spr, trans);
+void sprite_draw_id(u32 ent_id)
+{
+    // draw_sprite();
 }

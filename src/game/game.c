@@ -1,11 +1,5 @@
 #include "game.h"
-#include "../engine/core/time.h"
-#include "../engine/core/math.h"
-#include "../engine/core/keyboard.h"
-#include "../engine/ecs/types/sprite.h"
 #include <stdlib.h>
-
-void system_draw();
 
 f32 temp = 0;
 f32 sinTemp;
@@ -18,48 +12,44 @@ static void processInputs()
 	{
 		camera.transform.position.y += 1.0f * delta_time;
 	}
-
+    
 	if(isKeyPressed(GLFW_KEY_S))
 	{
 		camera.transform.position.y -= 1.0f * delta_time;
 	}
-
+    
 	if(isKeyPressed(GLFW_KEY_A))
 	{
 		camera.transform.position.x -= 1.0f * delta_time;
 	}
-
+    
 	if(isKeyPressed(GLFW_KEY_D))
 	{
 		camera.transform.position.x += 1.0f * delta_time;
 	}
-
-	/*if(isKeyPressed(GLFW_KEY_LEFT))
+    
+	if(isKeyPressed(GLFW_KEY_LEFT))
 	{
 		camera.transform.rotation -= 40.0f * delta_time;
 	}
-
+    
 	if(isKeyPressed(GLFW_KEY_RIGHT))
 	{
 		camera.transform.rotation += 40.0f * delta_time;
-	}*/	
+	}
 }
 
 static void update()
 {
 	temp += delta_time;
-	sinTemp = sinf(temp);
-	cosTemp = cosf(temp);
-
+    
 	renderer_use_shader(spriteShader);
-
-	system_draw();
-}
-
-void system_draw()
-{
-	sprite_draw(ent1);
-	sprite_draw(ent2);
+    
+    entities[0].transform.position = (v2) { cosf(temp), sinf(temp) };
+    entities[1].transform.rotation = transform2d_rotate_to_point(v2_screen_to_view_space(mouse_position, &camera));
+    
+    sprite_draw(entities[0]);
+    sprite_draw(entities[1]);
 }
 
 void game_start()
@@ -67,28 +57,31 @@ void game_start()
 	window_create(1024, 768, "It's a window!", false);
 	window_setBackgroundImage("../res/images/clouds.png");
 	window_setFunctions(processInputs, update);
-
+    keyboard_init();
+    
 	renderer_setup(360);
-
+    
 	spriteShader = shader_init("../res/shaders/sprite.vs", "../res/shaders/sprite.fs");
-
+    
+    entities = malloc(MAX_ENTITIES * sizeof(*entities));
+    
 	ecs_init(4, sizeof(Transform2dComponent), sizeof(Transform3dComponent), 
-	sizeof(Camera2dComponent), sizeof(SpriteComponent));
-
-	ent1 = sprite_init(ent1, "../res/images/Placeholder.png");
-	ent2 = sprite_init(ent2, "../res/images/Cross.png");
-
-	game_loop();
-	game_stop();
+             sizeof(Camera2dComponent), sizeof(SpriteComponent));
+    
+    entities[0] = sprite_init(entities[0], "../res/images/Placeholder.png");
+    entities[1] = sprite_init(entities[1], "../res/images/Cross.png");
+    
+    game_loop();
+    game_stop();
 }
 
 void game_stop()
 {
-	sprite_destroy(ent1);
-	sprite_destroy(ent2);
-
+	sprite_destroy(&entities[0]);
+	sprite_destroy(&entities[1]);
+    
 	ecs_free();
-
+    
 	shader_destroy(spriteShader);
 	window_destroy();
 }

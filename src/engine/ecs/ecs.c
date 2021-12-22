@@ -45,7 +45,7 @@ void ecs_init(uint32_t n, ...)
 	size_t sizes[32];
 	size_t offsets[32];
 	size_t size = 0;
-
+    
 	va_start(ap, n);
 	
 	for (i = 0; i < n; ++i)
@@ -54,11 +54,11 @@ void ecs_init(uint32_t n, ...)
 		offsets[i] = size;
 		size += sizes[i];
 	}
-
+    
 	va_end(ap);
-
+    
 	state.entity_pool = as_create(sizeof(uint32_t));
-
+    
 	state.component_store.type_count = n;
 	state.component_store.cap = INITIAL_CAPACITY;
 	state.component_store.data = malloc(INITIAL_CAPACITY * size);
@@ -67,7 +67,7 @@ void ecs_init(uint32_t n, ...)
 	state.component_store.size = size;
 	memcpy(state.component_store.data_size_array, sizes, n * sizeof(size_t));
 	memcpy(state.component_store.data_offset_array, offsets, n * sizeof(size_t));
-
+    
 	state.entity_store.count = 0;
 	state.entity_store.cap = INITIAL_CAPACITY;
 	state.entity_store.mask_array = malloc(INITIAL_CAPACITY * sizeof(uint32_t));
@@ -80,16 +80,16 @@ void ecs_init(uint32_t n, ...)
 Entity ecs_create()
 {
 	Entity entity;
-
+    
 	if (state.entity_pool->count > 0)
 	{
-		entity = *(uint32_t*)as_pop(state.entity_pool);
+		entity.id = *(uint32_t*)as_pop(state.entity_pool);
 	}
 	else
 	{
-		entity = state.entity_store.count++;
-	
-		if (state.entity_store.cap == entity)
+		entity.id = state.entity_store.count++;
+        
+		if (state.entity_store.cap == entity.id)
 		{
 			uint32_t *new_flag_array = realloc(state.entity_store.flag_array, state.entity_store.cap * 2 * sizeof(uint32_t));
 			uint32_t *new_mask_array = realloc(state.entity_store.mask_array, state.entity_store.cap * 2 * sizeof(uint32_t));
@@ -107,18 +107,16 @@ Entity ecs_create()
 				state.entity_store.mask_array = new_mask_array;
 				state.query_result.list = new_query_result_list;
 				state.entity_store.cap *= 2;
-
+                
 				state.component_store.data = new_data;
 				state.component_store.cap *= 2;
 			}
 		}
 	}
-
-	printf("Entity count: %d\n", state.entity_store.count);
-
-	state.entity_store.mask_array[entity] = 0;
-	state.entity_store.flag_array[entity] = ENTITY_FLAG_ALIVE;
-
+    
+	state.entity_store.mask_array[entity.id] = 0;
+	state.entity_store.flag_array[entity.id] = ENTITY_FLAG_ALIVE;
+    
 	return entity;
 }
 
@@ -159,18 +157,18 @@ QueryResult* ecs_query(uint32_t n, ...)
 {
 	va_list ap;
 	uint32_t i, mask = 0;
-
+    
 	state.query_result.count = 0;
-
+    
 	va_start(ap, n);
 	
 	for (i = 0; i < n; ++i)
 	{
 		mask |= (1 << va_arg(ap, uint32_t));
 	}
-
+    
 	va_end(ap);
-
+    
 	for (i = 0; i < state.entity_store.count; ++i)
 	{
 		if (0 != (state.entity_store.flag_array[i] & ENTITY_FLAG_ALIVE) && mask == (state.entity_store.mask_array[i] & mask))
@@ -178,18 +176,18 @@ QueryResult* ecs_query(uint32_t n, ...)
 			state.query_result.list[state.query_result.count++] = i;
 		}
 	}
-
+    
 	return &state.query_result;
 }
 
 void ecs_free()
 {
 	as_destroy(state.entity_pool);
-
+    
 	free(state.component_store.data);
 	free(state.component_store.data_size_array);
 	free(state.component_store.data_offset_array);
-
+    
 	free(state.entity_store.mask_array);
 	free(state.entity_store.flag_array);
 }

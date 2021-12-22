@@ -13,6 +13,7 @@ extern bool mouseButtons[MAX_BUTTONS];
 extern v2 mouse_position;
 extern v2 mouse_delta;
 
+void keyboard_init();
 bool isKeyPressed(int keyCode);
 bool isMouseButtonPressed(int button);
 

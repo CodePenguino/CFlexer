@@ -83,10 +83,10 @@ v4 v4_mulNum(v4 vec4, float number)
 {
 	v4 res;
 
-	res.w = res.w * number;
-	res.x = res.x * number;
-	res.y = res.y * number;
-	res.z = res.z * number;
+	res.w = vec4.w * number;
+	res.x = vec4.x * number;
+	res.y = vec4.y * number;
+	res.z = vec4.z * number;
 
 	return res;
 }

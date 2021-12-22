@@ -1,4 +1,4 @@
 TODO:
 
 CURRENT:
-	- Finish creating the "Sprite" type
+	- Add Visual Studio support

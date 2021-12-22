@@ -1,6 +1,6 @@
 # Quick note, please install mingw for this!
 
-# Change this to you compiler of choice, I don't mind
+# Change this to you compiler of choice (I chose GCC)
 CC = gcc
 SRC = $(wildcard ../src/*.c) $(wildcard ../src/*/*.c) $(wildcard ../src/*/*/*.c) $(wildcard ../src/*/*/*/*.c)
 LIBS = -lmingw32 -lglew32 -lglfw3dll -lopengl32

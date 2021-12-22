@@ -1,5 +1,5 @@
 #include "renderer.h"
-#include "../ecs/components/transform.h"
+#include "../ecs/components/transform_component.h"
 #include "window.h"
 
 float SPRITE_RESOLUTION;

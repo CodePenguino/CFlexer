@@ -20,9 +20,11 @@ typedef double f64;
 
 char* read_file(char *filename);
 
+#define PI 3.1415926535
+
 // Common math functions
-#define degrees_to_radians(angleInDegrees) ((angleInDegrees) * M_PI / 180.0f)
-#define radians_to_degrees(angleInRadians) ((angleInRadians) * 180.0f / M_PI)
+#define degrees_to_radians(angleInDegrees) ((angleInDegrees) * PI / 180.0f)
+#define radians_to_degrees(angleInRadians) ((angleInRadians) * 180.0f / PI)
 
 float get_time_elapsed();
 
@@ -37,7 +39,7 @@ float benchmark_end_time;
 	stop_benchmark();\
 	printf("Benchmark: %f\n", benchmark_end_time - benchmark_start_time);
 
-#define max(a, b) ({\
+/*#define max(a, b) ({\
     __typeof__ (a) _a = (a); \
     __typeof__ (b) _b = (b); \
      _a > _b ? _a : _b; })
@@ -51,7 +53,7 @@ float benchmark_end_time;
     __typeof__ (x) _x = (x); \
     __typeof__ (mn) _mn = (mn); \
     __typeof__ (mx) _mx = (mx); \
-    max(_mn, min(_mx, _x)); })
+    max(_mn, min(_mx, _x)); })*/
 
 // TODO: Set up the width and height of the vertices depending on resolution
 const static GLfloat sprite_default_vertices[16] = {

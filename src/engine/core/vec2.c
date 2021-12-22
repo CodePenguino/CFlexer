@@ -42,8 +42,8 @@ v2 v2_rotate(v2 vec2, float angle)
 	float cosine = cosf(radianValue);
 	float sine = sinf(radianValue);
 
-	vec.x = vec.x * cosine - vec.y * sine;
-	vec.y = vec.x * sine + vec.y * cosine;
+	vec.x = vec2.x * cosine - vec2.y * sine;
+	vec.y = vec2.x * sine +   vec2.y * cosine;
 
 	return vec;
 }

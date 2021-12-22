@@ -3,18 +3,27 @@
 
 #include <inttypes.h>
 #include <stddef.h>
+#include "../common/util.h"
 
 #define ENTITY_FLAG_ALIVE 1
 
-// Macros for different component ids
-#define TRANSFORMCOMPONENT_ID 0
-#define SPRITECOMPONENT_ID 1
+// Macros for different ECS systems
+#define EcsOnStart  0
+#define EcsOnUpdate 1
 
-// typedef struct {
-// 	uint32_t id;
-// } Entity;
+/*typedef struct
+{
+    void* components;
+    size_t component_size;
+} ComponentList;*/
 
-typedef uint32_t Entity;
+typedef struct
+{
+    u32 id;
+    u8 tag;
+} Entity;
+
+// typedef uint32_t Entity;
 
 typedef struct {
 	uint32_t count;

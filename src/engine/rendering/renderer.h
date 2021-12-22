@@ -2,7 +2,7 @@
 #define RENDERER_H
 
 #include "shader.h"
-#include "../ecs/components/sprite.h"
+#include "../ecs/components/sprite_component.h"
 #include "../ecs/components/comp_data.h"
 
 extern float SPRITE_RESOLUTION;

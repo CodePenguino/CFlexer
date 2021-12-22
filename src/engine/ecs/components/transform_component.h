@@ -2,7 +2,7 @@
 #define TRANSFORM_H
 
 #include "comp_data.h"
-#include "camera.h"
+#include "camera_component.h"
 
 Transform2dComponent transform2d_init();
 

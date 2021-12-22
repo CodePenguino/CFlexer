@@ -1,4 +1,5 @@
-#include "sprite.h"
+#include "sprite_component.h"
+#include <GL/glew.h>
 #include "../../rendering/shader.h"
 #include <stdio.h>
 #include "../../rendering/renderer.h"
