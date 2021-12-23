@@ -14,6 +14,5 @@ typedef struct
 SpriteEntity sprite_init(SpriteEntity ent, const char* image_path);
 void sprite_destroy(SpriteEntity* ent);
 void sprite_draw(SpriteEntity ent);
-void sprite_draw_id(u32 ent_id);
 
 #endif // SPRITE_H

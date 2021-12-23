@@ -10,32 +10,28 @@ static void processInputs()
 	// ALL HAIL IF STATEMENTS!
 	if(isKeyPressed(GLFW_KEY_W))
 	{
-		camera.transform.position.y += 1.0f * delta_time;
+        
 	}
     
 	if(isKeyPressed(GLFW_KEY_S))
 	{
-		camera.transform.position.y -= 1.0f * delta_time;
+		
 	}
     
 	if(isKeyPressed(GLFW_KEY_A))
 	{
-		camera.transform.position.x -= 1.0f * delta_time;
 	}
     
 	if(isKeyPressed(GLFW_KEY_D))
 	{
-		camera.transform.position.x += 1.0f * delta_time;
 	}
     
 	if(isKeyPressed(GLFW_KEY_LEFT))
 	{
-		camera.transform.rotation -= 40.0f * delta_time;
 	}
     
 	if(isKeyPressed(GLFW_KEY_RIGHT))
 	{
-		camera.transform.rotation += 40.0f * delta_time;
 	}
 }
 
@@ -47,6 +43,8 @@ static void update()
     
     entities[0].transform.position = (v2) { cosf(temp), sinf(temp) };
     entities[1].transform.rotation = transform2d_rotate_to_point(v2_screen_to_view_space(mouse_position, &camera));
+    
+    fprintf(stderr, "%f, %f\n", entities[1].transform.position.x, entities[1].transform.position.y);
     
     sprite_draw(entities[0]);
     sprite_draw(entities[1]);
@@ -80,6 +78,7 @@ void game_stop()
 	sprite_destroy(&entities[0]);
 	sprite_destroy(&entities[1]);
     
+    free(entities);
 	ecs_free();
     
 	shader_destroy(spriteShader);

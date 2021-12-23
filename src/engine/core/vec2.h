@@ -11,6 +11,8 @@ typedef struct
 
 // typedef float v2[2];
 
+// v2 v2(float x, float y);
+
 f32 v2_length(v2 vec2);
 f32 v2_dot(v2 first, v2 second);
 v2 v2_normalize(v2 dest);

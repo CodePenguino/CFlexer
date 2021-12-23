@@ -26,8 +26,3 @@ void sprite_draw(SpriteEntity ent)
     // NOTE: The name of this function is not confusing at all ;)
 	draw_sprite(&ent.sprite, &ent.transform);
 }
-
-void sprite_draw_id(u32 ent_id)
-{
-    // draw_sprite();
-}

@@ -20,7 +20,7 @@ typedef double f64;
 
 char* read_file(char *filename);
 
-#define PI 3.1415926535
+#define PI 3.1415926535897932384626
 
 // Common math functions
 #define degrees_to_radians(angleInDegrees) ((angleInDegrees) * PI / 180.0f)
@@ -35,9 +35,9 @@ float benchmark_end_time;
 #define stop_benchmark()  (benchmark_end_time  = (float)clock()/CLOCKS_PER_SEC)
 
 #define benchmark_func(x) start_benchmark();\
-	x;\
-	stop_benchmark();\
-	printf("Benchmark: %f\n", benchmark_end_time - benchmark_start_time);
+x;\
+stop_benchmark();\
+printf("Benchmark: %f\n", benchmark_end_time - benchmark_start_time);
 
 /*#define max(a, b) ({\
     __typeof__ (a) _a = (a); \
@@ -57,10 +57,10 @@ float benchmark_end_time;
 
 // TODO: Set up the width and height of the vertices depending on resolution
 const static GLfloat sprite_default_vertices[16] = {
-	 1.0f,  1.0f,    1.0f, 1.0f,
-	 1.0f, -1.0f,    1.0f, 0.0f,
+    1.0f,  1.0f,    1.0f, 1.0f,
+    1.0f, -1.0f,    1.0f, 0.0f,
 	-1.0f, -1.0f,    0.0f, 0.0f,
- 	-1.0f,  1.0f,    0.0f, 1.0f
+    -1.0f,  1.0f,    0.0f, 1.0f
 };
 
 const static GLuint sprite_default_indices[6] = {

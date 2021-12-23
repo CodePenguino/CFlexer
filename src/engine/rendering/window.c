@@ -123,8 +123,8 @@ void window_create(u16 width, u16 height, const char* title, bool isFullscreen)
     
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    
-	background_shader = shader_init("../res/shaders/background.vs", "../res/shaders/background.fs");
+	
+    background_shader = shader_init("../res/shaders/background.vs", "../res/shaders/background.fs");
     
 	time_init();
 }
