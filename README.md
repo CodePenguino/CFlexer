@@ -28,3 +28,6 @@ mingw32-make
 With some luck, you might get the program to compile! You should see a program called "a.exe" show up (still in the build folder.) Just run this (either on the terminal, or by double-clicking on the app), and you should be good to go!
 ## Visual Studio
 no.
+## Resources
+For the ecs system in this project (src/engine/ecs/ecs.h & ecs.c and src/engine/common/array_stack.h & array_stack.c), the following project was used:
+https://gitlab.com/Falconerd/ember-ecs
